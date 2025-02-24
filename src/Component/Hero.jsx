@@ -7,13 +7,13 @@ function Hero() {
     const Mobile = "0183-9528923"
     const email = "sijanfgtdn@gamil.com"
     return (
-        <div className='flex flex-col md:flex-row mt-16 md:mt-28 '>
+        <div className='flex z-0 flex-col md:flex-row mt-16 md:mt-28 '>
 
             {/* left Section */}
             <div className="">
                 <div>
                     <div className="z-10 relative  md:mx-20 mx-10 text-5xl md:text-6xl md:w-[400px]">
-                        <h1>My name is <span className='font-bold '>Mohammad Sijan...</span></h1>
+                        <h1 className=''>My name is <span className='font-bold '>Mohammad Sijan...</span></h1>
 
                     </div>
                     <img
