@@ -12,7 +12,7 @@ function Hero() {
             {/* left Section */}
             <div className="">
                 <div>
-                    <div className="z-10 relative  md:mx-20 mx-10 text-5xl md:text-6xl md:w-[400px]">
+                    <div className="z-10 relative md:inline-block  md:mx-20 mx-10 text-5xl md:text-6xl md:w-[400px]">
                         <h1 className=''>My name is <span className='font-bold '>Mohammad Sijan...</span></h1>
 
                     </div>
