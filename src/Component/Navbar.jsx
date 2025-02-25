@@ -12,9 +12,9 @@ function Navbar() {
   return (
     <div className='  z-1 absolute md:relative' >
       <button className=' absolute md:hidden  ' onClick={handleDrawerToggle}>
-        {mobileOpen ? <CloseIcon sx={{ fontSize: 40, marginLeft: '85px', color: 'white', backgroundColor:'' }} /> : <MenuIcon sx={{ fontSize: 40, marginLeft: '10px' }} />}
+        {mobileOpen ? <CloseIcon sx={{ fontSize: 40, marginLeft:' 138px', color: 'white', backgroundColor:'' }} /> : <MenuIcon sx={{ fontSize: 40, marginLeft: '10px' }} />}
       </button>
-      <div className={`${mobileOpen ? '  block ' : 'hidden'} md:inline-block pb-67 md:pb-0 w-32 md:w-60 min-h-screen px-4 md:px-6 bg-[#141313]`}>
+      <div className={`${mobileOpen ? '  block ' : 'hidden'} md:inline-block pb-67 md:pb-0 w-46 md:w-60 min-h-screen px-4 md:px-6 bg-[#141313]`}>
         <header className="pt-10">
           <h3 className="text-2xl md:text-3xl font-bold text-white">SZN</h3>
         </header>
