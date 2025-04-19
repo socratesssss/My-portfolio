@@ -2,24 +2,23 @@ import React from "react";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Email } from "@mui/icons-material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import { useState } from "react";
+
 function Hero() {
   const Mobile = "0183952641";
   const email = "mohammadsijan381@gamil.com";
 
-
- 
   const openPDF = () => {
     window.open("/Resume.pdf", "_blank");
   };
   return (
+ 
     <section className="md:col-span-10">
      <div>
-     <div className="flex flex-col md:flex-row pt-10 md:pt-0  md:mt-20 ">
+     <div className="flex flex-col md:flex-row pt-14 md:pt-0  md:mt-20 ">
         {/* left Section */}
         <div className="">
           <div>
-            <div className="z-10 relative md:inline-block  md:mx-20 mx-10 text-5xl md:text-6xl md:w-[400px]">
+            <div className="z-10 relative md:inline-block  md:ml-20 mx-10 text-5xl md:text-6xl md:w-[400px]">
               <h1 className="">
                 My name is <span className="font-bold ">Mohammad Sijan...</span>
               </h1>
@@ -30,7 +29,7 @@ function Hero() {
               alt="Decorative vector"
             />
           </div>
-          <div className="md:mx-20 mx-10 mt-8 md:mt-6">
+          <div className="md:ml-20 mx-10 mt-8 md:mt-6">
             <p className="md:text-2xl text-xl">
               <span className="font-bold italic">Web Developer </span>based in
               Bangladesh
@@ -46,12 +45,12 @@ function Hero() {
             </button>
     
         
-            <div className="flex flex-col md:flex-row gap-4 w-[120%] justify-between mt-8 md:mt-16 ">
-              <a href={Mobile} className="font-semibold">
+            <div className="flex flex-col md:flex-row gap-4 md:w-[120%] justify-between mt-8 md:mt-16 ">
+              <a href={`tel:${Mobile}`} className="font-semibold">
                 <LocalPhoneIcon className="bg-gray-300 p-1 rounded-full" />+
                 {Mobile}
               </a>
-              <a  href={`tel:${email}`} className="font-semibold">
+              <a  href={`mailto:${email}`} className="font-semibold">
                 <Email className="bg-gray-300 p-1 rounded-full" /> {email}
               </a>
             </div>
@@ -59,12 +58,15 @@ function Hero() {
         </div>
         {/* right section */}
 
-        <div >
-          <img src="/Img.png" className=" " alt="Img.png" />
+        <div className="-mt-10" >
+          <img src="/Img.png" className="w-full " alt="Img.png" />
         </div>
       </div>
      </div>
     </section>
+  
+  
+   
   )
 }
 
