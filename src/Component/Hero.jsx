@@ -2,6 +2,7 @@ import React from "react";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Email } from "@mui/icons-material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import WebsiteShow from "./WebsiteShow";
 
 function Hero() {
   const Mobile = "0183952641";
@@ -62,6 +63,10 @@ function Hero() {
           <img src="/Img.png" className="w-full " alt="Img.png" />
         </div>
       </div>
+     </div>
+     <div className="">
+     <WebsiteShow/>
+     
      </div>
     </section>
   
