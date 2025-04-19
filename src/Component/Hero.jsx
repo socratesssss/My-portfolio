@@ -4,17 +4,18 @@ import { Email } from "@mui/icons-material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import { useState } from "react";
 function Hero() {
-  const Mobile = "01839528923";
+  const Mobile = "0183952641";
   const email = "mohammadsijan381@gamil.com";
 
 
-  const [showImage, setShowImage] = useState(false);
-  const handleClick = () => {
-    setShowImage(!showImage);
+ 
+  const openPDF = () => {
+    window.open("/Resume.pdf", "_blank");
   };
   return (
-    <section class="md:col-span-10">
-      <div className="flex flex-col md:flex-row pt-16 md:mt-28 ">
+    <section className="md:col-span-10">
+     <div>
+     <div className="flex flex-col md:flex-row pt-10 md:pt-0  md:mt-20 ">
         {/* left Section */}
         <div className="">
           <div>
@@ -35,32 +36,22 @@ function Hero() {
               Bangladesh
             </p>
             <button
-              onClick={handleClick}
-             className="bg-black text-white md:px-6 px-3 py-1 md:py-2 md:mt-10 mt-8 flex items-center">
-             {showImage ?"Hide Resume ": " See Resume"}{" "}
+              onClick={openPDF}
+             className="bg-black text-white md:px-6 px-3 cursor-pointer py-1 md:py-2 md:mt-10 mt-8 flex items-center">
+             See Resume
               <NorthEastIcon
                 sx={{ fontSize: 18, marginLeft: "8px" }}
-                className="text-white   bg-gradient-to-r from-[#FFB147] via-[#FF6C63] to-[#B86ADF]"
+                className="text-white   bg-gradient-to-r  from-[#FFB147] via-[#FF6C63] to-[#B86ADF]"
               />
             </button>
     
-            { showImage &&  <div className="image-container mt-4">
-    
-              <img
-            src="Resume.jpg"  // Replace with your image path
-            alt="Your Image"
-            className="w-full h-auto z-50 absolute left-0 md:left-[40%] md:top-20 bg-red-400 max-w-md"
-          />
-
-        </div>
-          
-            }
+        
             <div className="flex flex-col md:flex-row gap-4 w-[120%] justify-between mt-8 md:mt-16 ">
               <a href={Mobile} className="font-semibold">
                 <LocalPhoneIcon className="bg-gray-300 p-1 rounded-full" />+
                 {Mobile}
               </a>
-              <a  href={`mailto:${email}`} className="font-semibold">
+              <a  href={`tel:${email}`} className="font-semibold">
                 <Email className="bg-gray-300 p-1 rounded-full" /> {email}
               </a>
             </div>
@@ -72,6 +63,7 @@ function Hero() {
           <img src="/Img.png" className=" " alt="Img.png" />
         </div>
       </div>
+     </div>
     </section>
   )
 }

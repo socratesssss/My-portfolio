@@ -7,13 +7,15 @@ import Navbar from "./Component/Navbar";
 
 function Layout() {
   return (
-    <div  className='w-full  md:grid grid-cols-12 min-h-screen bg-[#FFFFFF]  '>
-      <Navbar/>
-   
-      <Outlet/>
-     
-    
-    </div>
+    <div className="md:grid grid-cols-12">
+  <div className="md:col-span-2">
+    <Navbar />
+  </div>
+  <main className="md:col-span-10">
+    <Outlet />
+  </main>
+</div>
+
   );
 }
 

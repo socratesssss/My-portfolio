@@ -1,59 +1,86 @@
-import React, { useState } from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 function Navbar() {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
+  const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
+    setMobileOpen(!mobileOpen);
   };
+
   const navItem = ["Home", "About", "Services", "Works", "Blogs", "Contact"];
+
   return (
-    <div className='absolute z-50 md:relative  md:col-span-2 ' >
-      <button className='absolute  md:hidden  ' onClick={handleDrawerToggle}>
-        {mobileOpen ? <button> <CloseIcon sx={{ fontSize: 40, marginLeft:' 138px', color: 'white', backgroundColor:'' }} /></button> : <button> <MenuIcon sx={{ fontSize: 40,marginTop:'10px', marginLeft: '10px' }} /> </button> }
-      </button>
-      <div className={`${mobileOpen ? '  block ' : 'hidden'} md:inline-block  pb-67 md:pb-0 w-46 md:w-full min-h-screen px-4 md:px-6 bg-[#141213]`}>
-        <header className="pt-10">
-          <h3 className="text-2xl md:text-3xl font-bold text-white">SZN</h3>
+    <section className="z-50  absolute md:relative min-h-screen ">
+    <div>
+        {/* Mobile Toggle Button */}
+        <div className="w-full relative bg-amber-300">
+        {mobileOpen ? (
+          <button
+            className="fixed top-4 right-0 z-50"
+            onClick={handleDrawerToggle}
+          >
+            <CloseIcon sx={{ fontSize: 32, marginRight: 20, color: "white" }} />
+          </button>
+        ) : (
+          <button
+            className="absolute top-4 left-4 md:hidden z-50"
+            onClick={handleDrawerToggle}
+          >
+            {" "}
+            <MenuIcon sx={{ fontSize: 32, color: "black" }} />
+          </button>
+        )}
+      </div>
+
+      {/* Sidebar */}
+      <div
+        className={`${
+          mobileOpen ? "block" : "hidden"
+        } md:block bg-[#141213] text-white fixed  top-0 left-0 min-h-screen h-full w-60 px-6 pt-4 transition-all duration-300 ease-in-out`}
+      >
+        <header>
+          <h3 className="text-2xl font-bold">SZN</h3>
         </header>
 
-        <nav className="mt-20">
-          <ul className="flex flex-col gap-3">
+        {/* Navigation Links */}
+        <nav className="mt-10">
+          <ul className="flex flex-col gap-4">
             {navItem.map((text, index) => (
               <li key={index}>
-                <button className="text-white text-base md:text-lg  border-b border-white md:border-none hover:text-gray-400 transition-colors">
-                 <del>{text}</del>
+                <button className="text-white text-sm cursor-pointer border-b border-white md:border-none hover:text-gray-400 transition">
+                  <del>{text}</del>
                 </button>
               </li>
             ))}
           </ul>
         </nav>
 
-        <footer className="mt-20 pt-10 relative bottom-7">
-          <div className="flex flex-col gap-4">
-            <button>
-              <img className="w-8 md:w-10" src="./Goggle.png" alt="Google" />
-            </button>
-            <button>
-              <img className="w-8 md:w-10" src="./icon.png" alt="Icon" />
-            </button>
-            <button>
-              <img className="w-8 md:w-10" src="./Instagram.png" alt="Instagram" />
-            </button>
-            <p className="mt-6 text-white hidden md:block   font-light text-xs md:text-sm">
+        {/* Footer Social Icons */}
+        <footer className="mt-auto pt-10 flex flex-col gap-4">
+          <a
+            href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LinkedInIcon sx={{ color: "white", fontSize: 30 }} />
+          </a>
+          <a
+            href="https://github.com/socratesssss"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <GitHubIcon sx={{ color: "white", fontSize: 30 }} />
+          </a>
+          <p className=" absolute bottom-3 text-white    font-light text-xs md:text-sm">
             Copyright ©2024 Mohammad Sijan. All rights reserved.
           </p>
-          </div>
-         
         </footer>
-        <p className="mt-6 text-white absolute bottom-4 md:hidden  font-light text-xs md:text-sm">
-            Copyright ©2024 Mohammad Sijan. All rights reserved.
-          </p>
-        
       </div>
     </div>
+    </section>
   );
 }
 
