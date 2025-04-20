@@ -105,7 +105,7 @@ function Navbar() {
           </nav>
 
           {/* Footer Social Icons */}
-          <footer className="mt-auto pt-10 flex flex-col gap-4">
+          <footer className="mt-auto pt-10 absolute bottom-6 flex  gap-4">
             <a
               href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
               target="_blank"
@@ -122,9 +122,7 @@ function Navbar() {
             >
               <GitHubIcon sx={{ color: "white", fontSize: 30 }} />
             </a>
-            <p className=" absolute bottom-3 text-white    font-light text-xs md:text-sm">
-              Copyright ©2024 Mohammad Sijan. All rights reserved.
-            </p>
+          
           </footer>
         </div>
       </div>

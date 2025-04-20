@@ -19,7 +19,7 @@ export default function ActionAreaCard({ name, img, link }) {
           className="w-full h-full object-cover"
         />
         <div className="px-3 bg-white rounded-4xl top-2 right-2 absolute">
-          <h2 className="md:text-xl capitalize font-semibold text-gray-600">
+          <h2 className="md:text-base capitalize shadow-xl drop-shadow-2xl font-semibold text-gray-600">
             { name}
           </h2>
         </div>
