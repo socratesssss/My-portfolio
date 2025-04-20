@@ -7,6 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import Myskills from "./Myskills";
+import Footer from "./Footer";
 
 function Hero() {
   const Mobile = "880 183952641";
@@ -100,6 +101,9 @@ function Hero() {
       </div>
       <div className="">
         <WebsiteShow />
+      </div>
+      <div>
+        <Footer/>
       </div>
     </section>
   );
