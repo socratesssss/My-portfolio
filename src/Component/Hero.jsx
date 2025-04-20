@@ -5,7 +5,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import WebsiteShow from "./WebsiteShow";
 
 function Hero() {
-  const Mobile = "0183952641";
+  const Mobile = "880 183952641";
   const email = "mohammadsijan381@gamil.com";
 
   const openPDF = () => {
@@ -59,7 +59,7 @@ function Hero() {
         </div>
         {/* right section */}
 
-        <div className="-mt-10" >
+        <div className="md:-mt-10" >
           <img src="/Img.png" className="w-full " alt="Img.png" />
         </div>
       </div>

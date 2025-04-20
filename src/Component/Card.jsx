@@ -1,23 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export default function ActionAreaCard() {
+export default function ActionAreaCard({ name, img, link }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <div className="max-w-[300px] w-full bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <div className="cursor-pointer">
+    <div className="w-full bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl md:hover:scale-110 transition-all duration-300">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="cursor-pointer relative"
+      >
         <img
-          src="/website1.png"
-          alt="green iguana"
+          src={img}
+          alt={name}
           className="w-full h-full object-cover"
         />
-        <div className="px-4 py-2">
-          <h2 className="md:text-xl font-semibold text-gray-800">Disester web site</h2>
-          {/* <p className="text-sm text-gray-600 mt-2">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica.
-          </p> */}
+        <div className="px-3 bg-white rounded-4xl top-2 right-2 absolute">
+          <h2 className="md:text-xl capitalize font-semibold text-gray-600">
+            { name}
+          </h2>
         </div>
-      </div>
+{
+  isHovered &&         <div className='hidden md:flex absolute items-center justify-center  w-full h-full bg-gray-500/50   top-0'>
+  <h1 className='text-white  text-3xl font-semibold '> Click</h1>
+  
+          </div>
+}
+      </a>
     </div>
   );
 }
-
