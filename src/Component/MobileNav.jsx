@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -11,6 +11,15 @@ function Nav() {
   };
 
   const navItem = ["Home", "About", "Services", "Works", "Blogs", "Contact"];
+
+  // Optional: lock scroll when sidebar is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [mobileOpen]);
 
   return (
     <div>
@@ -34,14 +43,14 @@ function Nav() {
       {mobileOpen && (
         <div
           onClick={handleDrawerToggle}
-          className="fixed top-0 left-0 w-full h-svh bg-black opacity-40 z-40 md:hidden transition-opacity duration-300"
+          className="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-40 md:hidden transition-opacity duration-300"
         ></div>
       )}
 
       {/* Mobile Sidebar */}
       <div
         className={`
-          fixed z-50 top-0 left-0 min-h-svh h-svh w-60 bg-[#141213] px-6 pt-4
+          fixed inset-0 z-50 w-60 bg-[#141213] px-6 pt-4 overflow-y-auto
           transform transition-transform duration-300 ease-in-out md:hidden
           ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         `}
