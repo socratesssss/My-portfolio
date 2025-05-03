@@ -41,7 +41,7 @@ function Nav() {
       {/* Mobile Sidebar */}
       <div
         className={`
-          fixed z-50 top-0 left-0 min-h-screen h-full w-60 bg-[#141213] px-6 pt-4
+          fixed z-50 top-0 left-0 min-h-screen h-svh w-60 bg-[#141213] px-6 pt-4
           transform transition-transform duration-300 ease-in-out md:hidden
           ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         `}
