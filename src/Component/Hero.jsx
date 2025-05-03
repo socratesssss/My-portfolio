@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "./MobileNav";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Email } from "@mui/icons-material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
@@ -18,6 +19,7 @@ function Hero() {
   };
   return (
     <section className="md:col-span-10 container mx-auto">
+      <Nav/>
       <div>
         <div className="flex flex-col md:flex-row pt-14 md:pt-0  md:mt-20 ">
           {/* left Section */}

@@ -10,6 +10,7 @@ function Layout() {
     <div className="md:grid grid-cols-12">
  
     <Navbar />
+    
   
     <Outlet />
   
