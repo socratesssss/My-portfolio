@@ -34,7 +34,7 @@ function Nav() {
       {mobileOpen && (
         <div
           onClick={handleDrawerToggle}
-          className="fixed top-0 left-0 w-full h-full bg-black opacity-40 z-40 md:hidden transition-opacity duration-300"
+          className="fixed top-0 left-0 w-full h-svh bg-black opacity-40 z-40 md:hidden transition-opacity duration-300"
         ></div>
       )}
 
