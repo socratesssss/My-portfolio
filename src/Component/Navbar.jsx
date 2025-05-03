@@ -12,8 +12,8 @@ function Navbar() {
   const navItem = ["Home", "About", "Services", "Works", "Blogs", "Contact"];
 
   return (
-    <section className="md:col-span-2 w-full md:bg-[#141213]">
-      <div className="z-50  absolute md:relative min-h-screen">
+    <section className="md:col-span-2  z-50  md:bg-[#141213]">
+      <div className=" md:relative z-50  fixed min-h-screen">
         {/* Mobile Toggle Button */}
         <div className="w-full relative  bg-white ">
          

@@ -17,7 +17,7 @@ function Nav() {
       {/* Top Navbar with transition */}
       <div
         className={`
-          fixed top-0 left-0 w-full z-50 bg-white p-2 md:px-4 flex justify-between items-center
+          fixed top-0 left-0 w-full z-50 md:hidden bg-white p-2 md:px-4 flex justify-between items-center
           transition-all duration-300 ease-in-out
           ${mobileOpen ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"}
         `}
