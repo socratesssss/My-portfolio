@@ -38,8 +38,8 @@ function WebsiteShow() {
 
   return (
     <section>
-      <div className="py-10 border-b-2 mx-4 md:mx-20 outline-offset-4">
-        <h1 className="font-bold text-xl md:text-3xl">
+      <div className="py-10 border-b-2 dark:border-white mx-4 md:mx-20 outline-offset-4">
+        <h1 className="font-bold dark:text-white text-xl md:text-3xl">
           Some of my developed websites
         </h1>
       </div>
