@@ -33,22 +33,39 @@
 // }
 
 // export default Home
-
+import { useEffect, useState } from 'react';
 import React from 'react'
 import Layout from './Layout';
 import Hero from './Component/Hero'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MessageBox from './Component/Massage';
 
 
 function App() {
+   // dark
+   const [isDark, setIsDark] = useState(false);
+
+   useEffect(() => {
+     const root = document.documentElement;
+     if (isDark) {
+       root.classList.add('dark');
+     } else {
+       root.classList.remove('dark');
+     }
+   }, [isDark]);
+ 
+   const toggleDarkMode = () => {
+     setIsDark(prev => !prev)
+   }
   return (
    
 
     <Router>
     <Routes>
       {/* Common layout wrapper */}
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Hero/>} />
+      <Route path="/" element={<Layout toggleDarkMode={toggleDarkMode} />}>
+        <Route index  element={<Hero toggleDarkMode={toggleDarkMode}/>} />
+        <Route path="/massage" element={<MessageBox/>} />
      
       </Route>
     </Routes>
