@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import NightlightIcon from '@mui/icons-material/Nightlight';
-
+import NightlightIcon from "@mui/icons-material/Nightlight";
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-function Nav({ toggleDarkMode }) {
+function Nav({ toggleDarkMode, isDark }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -22,9 +21,11 @@ function Nav({ toggleDarkMode }) {
       document.body.style.overflow = "";
     }
   }, [mobileOpen]);
-  const phone = '8801839528641'; // your phone number with country code
-  const message = 'Hello! I found your website.';
-  const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const phone = "8801839528641"; // your phone number with country code
+  const message = "Hello! I found your website.";
+  const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
+    message
+  )}`;
   return (
     <div>
       {/* Top Navbar with transition */}
@@ -32,26 +33,44 @@ function Nav({ toggleDarkMode }) {
         className={`
           fixed top-0 left-0 w-full z-50 md:hidden bg-white dark:bg-[#122239] p-2 md:px-4 flex justify-between items-center
           transition-all duration-300 ease-in-out drop-shadow-sm
-          ${mobileOpen ? "opacity-0 -translate-y-full pointer-events-none" : "opacity-100 translate-y-0"}
+          ${
+            mobileOpen
+              ? "opacity-0 -translate-y-full pointer-events-none"
+              : "opacity-100 translate-y-0"
+          }
         `}
       >
-        <h3 className="text-2xl mx-2 dark:text-white font-bold">SZN</h3>
-       
-        {!mobileOpen && (
-         <div className='flex gap-2'>
-           <button onClick={toggleDarkMode}>
- <NightlightIcon 
-   className="text-black dark:text-white"
- sx={{
+    {isDark? 
+        <button onClick={toggleDarkMode}>
+        <NightlightIcon
+          className="text-white"
+          sx={{
+            fontSize: 28,
+          }}
+        />
+      </button>
+       :
+        <button onClick={toggleDarkMode}>
+        <WbSunnyIcon
+          className="text-black"
+          sx={{
+            fontSize: 28,
+          }}
+        />
+      </button>
 
-  
-   fontSize: 28 }} />
-                      </button>
-           <button className="md:hidden" onClick={handleDrawerToggle}>
-            <MenuIcon    className="text-black dark:text-white" sx={{ fontSize: 32 }} />
-          </button>
-         </div>
-        
+    }
+
+        {!mobileOpen && (
+          <div className="flex gap-2">
+           
+            <button className="md:hidden" onClick={handleDrawerToggle}>
+              <MenuIcon
+                className="text-black dark:text-white"
+                sx={{ fontSize: 32 }}
+              />
+            </button>
+          </div>
         )}
       </div>
 
@@ -112,15 +131,14 @@ function Nav({ toggleDarkMode }) {
           >
             <GitHubIcon sx={{ color: "white", fontSize: 30 }} />
           </a> */}
-             <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-                className="inline-block border-b"
-           
-            >
-              <WhatsAppIcon sx={{ fontSize: 30 , }} />
-            </a>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border-b"
+          >
+            <WhatsAppIcon sx={{ fontSize: 30,color:"white" }} />
+          </a>
         </footer>
       </div>
     </div>

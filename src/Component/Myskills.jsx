@@ -17,15 +17,15 @@ function Myskills() {
   ];
 
   return (
-    <section>
-      <div className="mx-4 md:mx-20">
+    <section className="dark:bg-[#374d6b] py-3">
+      <div className="mx-4 md:mx-20 ">
         <div className="flex justify-center items-center py-3">
-          <h1 className="text-2xl md:text-3xl font-bold">
+          <h1 className="text-2xl md:text-3xl dark:text-white font-bold">
             My Skills <SchoolIcon sx={{ marginBottom: "6px" }} />
           </h1>
         </div>
 
-        <div className="grid grid-cols-4 gap-10 my-3 md:my-10 md:grid-cols-5">
+        <div className="grid grid-cols-4  gap-10 my-3 md:my-10 md:grid-cols-5">
           {img.map((info, i) => (
             <motion.div
               key={i}

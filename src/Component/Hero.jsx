@@ -13,7 +13,7 @@ import Footer from "./Footer";
 
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-function Hero({toggleDarkMode}) {
+function Hero({toggleDarkMode,isDark}) {
   const Mobile = "880 183952641";
   const email = "mohammadsijan381@gamil.com";
 
@@ -29,7 +29,7 @@ function Hero({toggleDarkMode}) {
   const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   return (
     <section className="md:col-span-10 bg-white dark:bg-[#0B192C] container mx-auto">
-      <Nav toggleDarkMode={toggleDarkMode} />
+      <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <div>
         <div className="flex flex-col md:flex-row pt-14 md:pt-0 md:mt-20">
           {/* Left Section */}
@@ -47,7 +47,7 @@ function Hero({toggleDarkMode}) {
  
               </div>
               <img
-                className="absolute w-30 md:-mt-48 -mt-36 ml-6 md:ml-14"
+                className="absolute dark:hidden w-30 md:-mt-48 -mt-36 ml-6 md:ml-14"
                 src="./Vector (2).png"
                 alt="Decorative vector"
               />
