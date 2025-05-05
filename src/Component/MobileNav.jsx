@@ -135,7 +135,7 @@ function Nav({ toggleDarkMode, isDark }) {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block border-b"
+            className="inline-block border-b border-white"
           >
             <WhatsAppIcon sx={{ fontSize: 30,color:"white" }} />
           </a>
