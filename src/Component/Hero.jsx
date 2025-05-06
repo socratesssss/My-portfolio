@@ -13,6 +13,7 @@ import Footer from "./Footer";
 
 
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import FaqSection from "./Faq";
 function Hero({toggleDarkMode,isDark}) {
   const Mobile = "880 183952641";
   const email = "mohammadsijan381@gamil.com";
@@ -28,9 +29,9 @@ function Hero({toggleDarkMode,isDark}) {
   const message = 'Hello! I found your website.';
   const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   return (
-    <section className="md:col-span-10 bg-white dark:bg-[#0B192C] container mx-auto">
+    <section className="md:col-span-10 bg-white dark:bg-[#0B192C] ">
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
-      <div>
+      <div className="container mx-auto">
         <div className="flex flex-col md:flex-row pt-14 md:pt-0 md:mt-20">
           {/* Left Section */}
           <div>
@@ -147,6 +148,9 @@ function Hero({toggleDarkMode,isDark}) {
       </div>
       <div>
         <WebsiteShow />
+      </div>
+      <div>
+        <FaqSection/>
       </div>
       <div>
         <Footer />

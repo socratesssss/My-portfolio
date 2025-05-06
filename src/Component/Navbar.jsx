@@ -21,7 +21,8 @@ function Navbar({toggleDarkMode}) {
           hidden md:flex md:flex-col text-white fixed top-0 px-3 left-0 min-h-screen h-full  w-52 pt-4 transition-all duration-300 ease-in-out`}
         >
           <header className="flex w-full justify-between ">
-            <h3 className="text-2xl  font-bold">SZN</h3>
+
+            <img src="/logo2.png" className="w-[35px]" alt="" />
             <button onClick={toggleDarkMode}>
               <DarkModeIcon  sx={{ color: "white", fontSize: 30 }} />
             </button>

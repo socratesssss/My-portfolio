@@ -29,9 +29,9 @@ export default function ActionAreaCard({ name, img, link }) {
             { name}
           </h2>
         </div>
-        <div className='hidden md:flex absolute  -bottom-20 transition-all duration-200 items-center justify-center group-hover:bottom-0  w-full h-[25%] bg-gray-500/50   '>
-  <h1 className='text-white  text-3xl font-semibold '> Click</h1>
-  
+        <div className=' flex flex-col absolute py-1  md:-bottom-20 transition-all  duration-200  gap-1 justify-center bottom-0 md:group-hover:bottom-0 overflow-hidden  w-full  bg-gray-500/70 md:bg-gray-500/50   '>
+  <h1 className='text-white mx-1  text-xl capitalize  md:text-xl font-semibold font-sarif  '> view {name}</h1>
+  <p className='text-gray-100 mx-1 text-sm md:text-sm line-clamp-1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolore.</p>
           </div>
 
       </a>

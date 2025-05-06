@@ -37,7 +37,7 @@ function WebsiteShow() {
   ];
 
   return (
-    <section>
+    <section className="container mx-auto">
       <div className="py-10 border-b-2 dark:border-white mx-4 md:mx-20 outline-offset-4">
         <h3 className="font-bold dark:text-white text-xl md:text-3xl">
           Some of my developed websites

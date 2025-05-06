@@ -90,15 +90,17 @@ function Nav({ toggleDarkMode, isDark }) {
           ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        <button
+       
+
+        <header>
+        
+          <img src="/logo2.png" className="w-[34px]" alt="" />
+          <button
           className="absolute top-4 right-4 z-50"
           onClick={handleDrawerToggle}
         >
           <CloseIcon sx={{ fontSize: 32, color: "white" }} />
         </button>
-
-        <header>
-          <h3 className="text-2xl font-bold text-white">SZN</h3>
         </header>
 
         {/* Navigation Links */}
