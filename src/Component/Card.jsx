@@ -1,40 +1,42 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import CardActionArea from '@mui/material/CardActionArea';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
 
-export default function ActionAreaCard({ name, img, link }) {
-  const [isHovered, setIsHovered] = useState(false);
+export default function ActionAreaCard({image,name,link}) {
 
   return (
-    <div className="w-full group relative   rounded-lg shadow-md overflow-hidden hover:shadow-xl md:hover:scale-110 transition-all duration-300">
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="cursor-pointer "
-      >
-        <img
-          src={img}
-          alt={name}
-          className="w-full border-b h-full object-cover"
+    <Card sx={{ maxWidth: 345 }}
+  >
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="140"
+          image={image}
+          alt="green iguana"
         />
+        <CardContent className='dark:bg-gray-800 border-b dark:border-gray-600 border-gray-200'>
+          <Typography gutterBottom variant="h5" className='dark:text-white' component="div">
+          {name}
+          </Typography>
+          <Typography variant="body2" className='line-clamp-2 dark:text-white'>
+           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, voluptatum!
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      
 
-
+      <CardActions className='dark:bg-gray-800'>
+        <Button size="small"   target="_blank"     component="a" href={link}>Live Demo</Button>
+      </CardActions>
    
-
-
-
-        <div className="px-3 bg-white rounded-4xl top-2 right-2 absolute">
-          <h2 className="md:text-base capitalize shadow-xl drop-shadow-2xl font-semibold text-gray-600">
-            { name}
-          </h2>
-        </div>
-        <div className=' flex flex-col absolute py-1  md:-bottom-20 transition-all  duration-200  gap-1 justify-center bottom-0 md:group-hover:bottom-0 overflow-hidden  w-full  bg-gray-500/70 md:bg-gray-500/50   '>
-  <h1 className='text-white mx-1  text-xl capitalize  md:text-xl font-semibold font-sarif  '> view {name}</h1>
-  <p className='text-gray-100 mx-1 text-sm md:text-sm line-clamp-1'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolore.</p>
-          </div>
-
-      </a>
-    </div>
+     
+    </Card>
   );
 }
