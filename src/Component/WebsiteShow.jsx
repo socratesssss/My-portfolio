@@ -1,8 +1,11 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import ActionAreaCard from "./Card";
 
 function WebsiteShow() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
+
   const websites = [
     {
       id: 1,
@@ -36,33 +39,37 @@ function WebsiteShow() {
     },
   ];
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <section className="container mx-auto">
+    <section ref={sectionRef} className="container mx-auto">
       <div className="py-10 border-b-2 dark:border-white mx-4 md:mx-20 outline-offset-4">
         <h3 className="font-bold dark:text-white text-xl md:text-3xl">
           Some of my developed websites
         </h3>
       </div>
+
       <motion.div
         className="mx-4 md:mx-20 gap-6 md:gap-y-14 grid grid-cols-1 md:grid-cols-3 justify-between py-14"
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: 30 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
       >
         {websites.map((info, index) => (
-          <motion.div
-            key={index}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 20 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.2 * index }} // Stagger the delays
-          >
-            <ActionAreaCard
-              link={info.link}
-              name={info.name}
-              img={info.img}
-            />
+          <motion.div key={info.id} variants={cardVariants}>
+            <ActionAreaCard link={info.link} name={info.name} img={info.img} />
           </motion.div>
         ))}
       </motion.div>

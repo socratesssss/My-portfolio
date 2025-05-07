@@ -1,35 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Nav from "./MobileNav";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Email } from "@mui/icons-material";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import WebsiteShow from "./WebsiteShow";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import Myskills from "./Myskills";
-import Footer from "./Footer";
-
-
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import WebsiteShow from "./WebsiteShow";
+import Myskills from "./Myskills";
 import FaqSection from "./Faq";
-function Hero({toggleDarkMode,isDark}) {
+import Footer from "./Footer";
+import ReviewSection from "./Review";
+
+function Hero({ toggleDarkMode, isDark }) {
+  // Contact details
   const Mobile = "880 183952641";
   const email = "mohammadsijan381@gamil.com";
+  const phone = "8801839528641";
+  const message = "Hello! I found your website.";
+  const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
+  // Open resume PDF
   const openPDF = () => {
     window.open("/Resume.pdf", "_blank");
   };
- 
- 
 
-// whatapp
-  const phone = '8801839528641'; // your phone number with country code
-  const message = 'Hello! I found your website.';
-  const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  // Full text for typewriter effect
+  const fullText = " Mohammad Sijan";
+  const [displayText, setDisplayText] = useState(""); // State for typed text
+  const [started, setStarted] = useState(false); // State to start the typing effect
+
+  // Start typing effect on mount
+  useEffect(() => {
+    if (!started) return;
+
+    let index = 0;
+    const typeLetter = () => {
+      if (index < fullText.length) {
+        setDisplayText((prev) => prev + fullText.charAt(index));
+        index++;
+        setTimeout(typeLetter, 100); // Delay before next letter
+      }
+    };
+    typeLetter();
+  }, [started]);
+
+  // Trigger the typing effect once component is mounted
+  useEffect(() => {
+    setStarted(true);
+  }, []);
+
   return (
-    <section className="md:col-span-10 bg-white dark:bg-[#0B192C] ">
+    <section className="md:col-span-10 bg-white dark:bg-[#0B192C]">
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row pt-14 md:pt-0 md:mt-20">
@@ -41,11 +65,14 @@ function Hero({toggleDarkMode,isDark}) {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-100 md:ml-20 mx-10 text-5xl md:text-6xl md:w-[400px]">
-                <h1>
-                  My name is <span className="font-bold">Mohammad Sijan...</span>
-                </h1>
- 
+              <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-100 md:ml-20 mx-10 text-5xl md:text-6xl md:w-[400px] min-h-[90px]">
+                <h3>Hello, I am...</h3>
+               
+
+                <strong className="font-bold">
+                  {displayText}
+                  <span className="animate-pulse">.</span>
+                </strong>
               </div>
               <img
                 className="absolute dark:hidden w-30 md:-mt-48 -mt-36 ml-6 md:ml-14"
@@ -62,7 +89,7 @@ function Hero({toggleDarkMode,isDark}) {
               className="md:ml-20 mx-10 mt-8 md:mt-6"
             >
               <p className="md:text-2xl text-black dark:text-white text-xl">
-                <span className="font-bold italic">Web Developer </span>based in Bangladesh
+                <strong className="font-bold italic">Web Developer </strong>based in Bangladesh
               </p>
 
               <motion.button
@@ -85,11 +112,25 @@ function Hero({toggleDarkMode,isDark}) {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col md:flex-row gap-4 md:w-[120%] justify-between mt-8 md:mt-16"
               >
-                <a href={`tel:${Mobile}`} className="font-semibold text-black  dark:text-white">
-                  <LocalPhoneIcon  sx={{color:'black'}} className="bg-gray-100 p-1 rounded-full" />+{Mobile}
+                <a
+                  href={`tel:${Mobile}`}
+                  className="font-semibold text-black dark:text-white"
+                >
+                  <LocalPhoneIcon
+                    sx={{ color: "black" }}
+                    className="bg-gray-100 p-1 rounded-full"
+                  />
+                  +{Mobile}
                 </a>
-                <a href={`mailto:${email}`} className="font-semibold text-black dark:text-white">
-                  <Email className="bg-gray-100 p-1 rounded-full" sx={{color:'black'}} /> {email}
+                <a
+                  href={`mailto:${email}`}
+                  className="font-semibold text-black dark:text-white"
+                >
+                  <Email
+                    className="bg-gray-100 p-1 rounded-full"
+                    sx={{ color: "black" }}
+                  />{" "}
+                  {email}
                 </a>
               </motion.div>
 
@@ -106,26 +147,41 @@ function Hero({toggleDarkMode,isDark}) {
                   rel="noreferrer"
                   className="inline-block border-b dark:border-white"
                 >
-                  <LinkedInIcon    className="text-[#1469C9] " sx={{ fontSize: 30 }} />
-                </a>
-                <a href="https://github.com/socratesssss" target="_blank"   className="inline-block  dark:border-white border-b" rel="noreferrer">
-                  <GitHubIcon sx={{ fontSize: 30 }} className="text-black dark:text-white" />
+                  <LinkedInIcon
+                    className="text-[#1469C9]"
+                    sx={{ fontSize: 30 }}
+                  />
                 </a>
                 <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-                className="inline-block  dark:border-white border-b "
-           
-            >
-              <WhatsAppIcon sx={{ fontSize: 30,
-                color:"green"
-               }} />
-            </a>
-                <a href={`mailto:${email}`} target="_blank" rel="noreferrer"   className="inline-block border-b  dark:border-white">
-                  <AlternateEmailIcon sx={{ fontSize: 30 }}  className="text-black dark:text-white"  />
+                  href="https://github.com/socratesssss"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block dark:border-white border-b"
+                >
+                  <GitHubIcon
+                    sx={{ fontSize: 30 }}
+                    className="text-black dark:text-white"
+                  />
                 </a>
-             
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block dark:border-white border-b"
+                >
+                  <WhatsAppIcon sx={{ fontSize: 30, color: "green" }} />
+                </a>
+                <a
+                  href={`mailto:${email}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block border-b dark:border-white"
+                >
+                  <AlternateEmailIcon
+                    sx={{ fontSize: 30 }}
+                    className="text-black dark:text-white"
+                  />
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -143,18 +199,11 @@ function Hero({toggleDarkMode,isDark}) {
         </div>
       </div>
 
-      <div>
-        <Myskills />
-      </div>
-      <div>
-        <WebsiteShow />
-      </div>
-      <div>
-        <FaqSection/>
-      </div>
-      <div>
-        <Footer />
-      </div>
+      <Myskills />
+      <WebsiteShow />
+      <FaqSection />
+      <ReviewSection/>
+      <Footer />
     </section>
   );
 }
