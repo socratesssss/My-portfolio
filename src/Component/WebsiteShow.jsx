@@ -85,7 +85,7 @@ const WebsiteShow = () => {
         <div className="md:hidden -mx-4">
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth px-4 pb-4 scrollbar-hide"
+            className="flex gap-6 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth px-4 pb-4 scrollbar-hide"
           >
             {websites.map((site, index) => (
               <motion.div
