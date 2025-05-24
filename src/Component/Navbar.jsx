@@ -3,8 +3,10 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import NightlightIcon from "@mui/icons-material/Nightlight";
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 
-function Navbar({toggleDarkMode}) {
+function Navbar({toggleDarkMode,isDark}) {
 
 
   const navItem = ["Home", "About", "Services", "Works", "Blogs", "Contact"];
@@ -24,7 +26,12 @@ function Navbar({toggleDarkMode}) {
 
             <img src="/logo2.png" className="w-[35px]" alt="" />
             <button onClick={toggleDarkMode}>
-              <DarkModeIcon  sx={{ color: "white", fontSize: 30 }} />
+              {isDark?  <WbSunnyIcon sx={{ color: "white", fontSize: 30 }}/>:
+               <DarkModeIcon  sx={{ color: "white", fontSize: 30 }} />
+             
+
+              }
+             
             </button>
           </header>
 

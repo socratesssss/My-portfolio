@@ -13,36 +13,39 @@ function Myskills() {
     { src: "/typescript.png", name: "TYPESCRIPT" },
     { src: "/nextjs.png", name: "NEXTJS" },
     { src: "/frammer.png", name: "FRAMER" },
-    { src: "/mui.jpg", name: "MUI" }
+    { src: "/mui.jpg", name: "MUI" },
   ];
 
   return (
-    <section className="dark:bg-[#374d6b] py-3  container mx-auto">
-      <div className="mx-4 md:mx-20 ">
+    <section className="dark:bg-[#0f172a] bg-gray-50 py-10 transition-colors duration-500">
+      <div className="mx-4 md:mx-20">
         <div className="flex justify-center items-center py-3">
-          <h2 className="text-2xl md:text-3xl dark:text-white font-bold">
-            My Skills <SchoolIcon sx={{ marginBottom: "6px" }} />
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
+            My Skills <SchoolIcon sx={{ marginBottom: "4px" }} />
           </h2>
         </div>
 
-        <div className="grid grid-cols-4  gap-10 my-3 md:my-10 md:grid-cols-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mt-6">
           {skills.map((info, i) => (
             <motion.div
               key={i}
-              className="w-full h-auto flex justify-center items-center"
+              className="flex flex-col items-center justify-center p-4 bg-white dark:bg-[#1e293b] rounded-lg shadow hover:shadow-md dark:hover:shadow-blue-800 transition duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{
-                duration: 0.5,
-                delay: i * 0.05,
+                duration: 0.4,
+                delay: i * 0.08,
               }}
             >
               <img
                 src={info.src}
-                className="w-auto h-10 md:h-20 object-cover"
                 alt={info.name}
+                className="h-10 md:h-16 object-contain"
               />
+              <p className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                {info.name}
+              </p>
             </motion.div>
           ))}
         </div>

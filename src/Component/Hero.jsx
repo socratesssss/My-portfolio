@@ -13,6 +13,7 @@ import Myskills from "./Myskills";
 import FaqSection from "./Faq";
 import Footer from "./Footer";
 import ReviewSection from "./Review";
+import SendEmail from "./Email";
 
 function Hero({ toggleDarkMode, isDark }) {
   // Contact details
@@ -203,6 +204,7 @@ function Hero({ toggleDarkMode, isDark }) {
       <WebsiteShow />
       <FaqSection />
       <ReviewSection/>
+      <SendEmail/>
       <Footer />
     </section>
   );

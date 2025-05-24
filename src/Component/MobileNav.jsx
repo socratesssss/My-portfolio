@@ -40,26 +40,29 @@ function Nav({ toggleDarkMode, isDark }) {
           }
         `}
       >
+          <button onClick={toggleDarkMode}>
     {isDark? 
-        <button onClick={toggleDarkMode}>
-        <NightlightIcon
+      
+       <WbSunnyIcon
           className="text-white"
           sx={{
             fontSize: 28,
           }}
         />
-      </button>
+     
        :
-        <button onClick={toggleDarkMode}>
-        <WbSunnyIcon
+          <NightlightIcon
           className="text-black"
           sx={{
             fontSize: 28,
           }}
         />
-      </button>
+      
+      
+    
 
     }
+      </button>
 
         {!mobileOpen && (
           <div className="flex gap-2">

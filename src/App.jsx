@@ -63,7 +63,7 @@ function App() {
     <Router>
     <Routes>
       {/* Common layout wrapper */}
-      <Route path="/" element={<Layout  toggleDarkMode={toggleDarkMode} />}>
+      <Route path="/" element={<Layout isDark={isDark}  toggleDarkMode={toggleDarkMode} />}>
         <Route index  element={<Hero isDark={isDark} toggleDarkMode={toggleDarkMode}/>} />
         <Route path="/massage" element={<MessageBox/>} />
      

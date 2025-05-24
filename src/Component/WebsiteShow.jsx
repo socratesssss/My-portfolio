@@ -5,9 +5,17 @@ import ActionAreaCard from "./Card";
 const websites = [
   {
     id: 1,
+    name: "My AI Model",
+    img: "/alpha.png",
+    link: "https://alpha-ai-robo.netlify.app/",
+    des:'AlphaMind is an AI-powered chatbot designed to assist users with a variety of tasks. Built using the React framework, it offers a user-friendly interface that facilitates seamless interactions. While the website doesnt provide extensive details about its underlying technology, the chatbot appears to be capable of handling general inquiries and providing information on a range of topics.'
+  },
+  {
+    id: 6,
     name: "DISASTERS",
     img: "/website1.png",
     link: "https://disaster-website.netlify.app/",
+    des:"The website appears to be a basic template for a disaster information platform, built using Vite and React. It seems to serve as a foundational structure for developers or organizations aiming to create a disaster response or emergency information site."
   },
   {
     id: 2,
@@ -63,7 +71,7 @@ const WebsiteShow = () => {
         </h2>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {websites.map((site, index) => (
             <motion.div
               key={site.id}
@@ -76,6 +84,7 @@ const WebsiteShow = () => {
                 name={site.name}
                 image={site.img}
                 link={site.link}
+                des={site.des}
               />
             </motion.div>
           ))}
@@ -100,6 +109,7 @@ const WebsiteShow = () => {
                   name={site.name}
                   image={site.img}
                   link={site.link}
+                    des={site.des}
                 />
               </motion.div>
             ))}

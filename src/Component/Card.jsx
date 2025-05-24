@@ -1,23 +1,23 @@
-import * as React from 'react';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
+
 import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 
-export default function ActionAreaCard({image,name,link}) {
+export default function ActionAreaCard({image,name,link,des}) {
 
   return (
-    <Card sx={{ maxWidth: 345 }}
+    <Card sx={{ maxWidth: 405 }}
   >
       <CardActionArea>
         <CardMedia
           component="img"
-          height="140"
+         
+          className='md:h-56 h-46'
           image={image}
           alt="green iguana"
         />
@@ -26,7 +26,9 @@ export default function ActionAreaCard({image,name,link}) {
           {name}
           </Typography>
           <Typography variant="body2" className='line-clamp-2 dark:text-white'>
-           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, voluptatum!
+        
+         {des ? `${des}`: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, voluptatum!'}
+           
           </Typography>
         </CardContent>
       </CardActionArea>
