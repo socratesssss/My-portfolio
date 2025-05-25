@@ -97,12 +97,13 @@ function Hero({ toggleDarkMode, isDark }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={openPDF}
-                className="bg-slate-950 dark:bg-white text-white dark:text-black font-semibold md:px-6 px-3 shadow-2xl transition-all duration-300 drop-shadow-2xl cursor-pointer py-1 md:py-2 md:mt-10 mt-8 flex items-center"
+                 className=" md:px-6 transition-all duration-300  md:py-2 md:mt-10 mt-8 text-white  bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2"
+                // className="bg-slate-950 dark:bg-white text-white dark:text-black font-semibold md:px-6 px-3 shadow-2xl transition-all duration-300 drop-shadow-2xl cursor-pointer py-1 md:py-2 md:mt-10 mt-8 flex items-center"
               >
                 See Resume
                 <NorthEastIcon
                   sx={{ fontSize: 18, marginLeft: "8px" }}
-                  className="text-white bg-gradient-to-r from-[#FFB147] via-[#FF6C63] to-[#B86ADF]"
+                  className="text-white bg-gradient-to-r rounded-sm from-[#FFB147] via-[#FF6C63] to-[#B86ADF]"
                 />
               </motion.button>
 
