@@ -54,10 +54,10 @@ function Hero({ toggleDarkMode, isDark }) {
   }, []);
 
   return (
-    <section className="md:col-span-10 bg-white dark:bg-[#0B192C]">
+    <section className=" bg-white dark:bg-[#0B192C] w-full">
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row pt-14 md:pt-0 md:mt-20">
+        <div className="flex flex-col md:flex-row pt-14 md:pt-0 mt-10 md:mt-20">
           {/* Left Section */}
           <div>
             <motion.div

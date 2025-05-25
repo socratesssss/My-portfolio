@@ -17,7 +17,7 @@ function Myskills() {
   ];
 
   return (
-    <section className="dark:bg-[#0f172a] bg-gray-50 py-10 transition-colors duration-500">
+    <section className="dark:bg-[#0f172a] bg-gray-50 py-10 container mx-auto transition-colors duration-500">
       <div className="mx-4 md:mx-20">
         <div className="flex justify-center items-center py-3">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white flex items-center gap-2">

@@ -7,7 +7,7 @@ import Navbar from "./Component/Navbar";
 
 function Layout({toggleDarkMode,isDark}) {
   return (
-    <div className="md:grid grid-cols-12">
+    <div className="md:flex">
  
     <Navbar isDark={isDark} toggleDarkMode={toggleDarkMode} />
     

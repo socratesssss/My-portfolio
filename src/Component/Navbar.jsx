@@ -15,12 +15,12 @@ function Navbar({toggleDarkMode,isDark}) {
   const message = 'Hello! I found your website.';
   const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   return (
-    <section className="col-span-2 z-50 bg-gray-900  dark:bg-[#122239] border-r border-white">
+    <section className="w-54 z-50 bg-gray-900  dark:bg-[#122239] border-r border-white">
       <div className=" md:relative z-50  fixed min-h-screen">
         {/* hh */}
         <div
           className={` justify-between
-          hidden md:flex md:flex-col text-white fixed top-0 px-3 left-0 min-h-screen h-full  w-52 pt-4 transition-all duration-300 ease-in-out`}
+          hidden md:flex md:flex-col w-44 fixed  text-white  top-0 px-3 left-0 min-h-screen h-full   pt-4 transition-all duration-300 ease-in-out`}
         >
           <header className="flex w-full justify-between ">
 
