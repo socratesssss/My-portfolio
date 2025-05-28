@@ -3,26 +3,36 @@ import axios from "axios";
 
 const Ai = ({ isDark }) => {
   const [showMessenger, setShowMessenger] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
   const [inputText, setInputText] = useState("");
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const messengerRef = useRef(null);
   const iconRef = useRef(null);
+  const messagesEndRef = useRef(null);
+  const soundRef = useRef(null);
 
   const toggleMessenger = () => {
     setShowMessenger((prev) => {
       const next = !prev;
       if (next && messages.length === 0) {
-       setMessages([
-  {
-    text: "👋 Hello! I'm <strong>AlphaMind</strong>, your AI assistant. How can I assist you today?",
-    sender: "ai",
-  },
-]);
+        setMessages([
+          {
+            text: "👋 Hello! I'm <strong>AlphaMind</strong>, your AI assistant. How can I assist you today?",
+            sender: "ai",
+          },
+        ]);
       }
       return next;
     });
+
+    // Hide notification if chat is opened
+    setShowNotification(false);
   };
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -39,6 +49,21 @@ const Ai = ({ isDark }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Show notification after 5s on every visit/refresh
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowNotification(true);
+      soundRef.current?.play();
+
+      // Auto-hide notification after 5s
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 15000);
+    }, 5000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   const handleInputChange = (e) => setInputText(e.target.value);
 
   const handleSubmit = async (e) => {
@@ -50,14 +75,13 @@ const Ai = ({ isDark }) => {
     setInputText("");
     setLoading(true);
 
-    // Custom AI name response
     const nameQuery = /what(?:'s| is) your name|who are you|your name|are you google powered|you google powered|are you powered by google|are you trained by google|you trained by google|are you google powered\??/i;
     if (nameQuery.test(userMessage)) {
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,
           {
-            text: `<h2>I'm <strong>AlphaMind</strong> 🤖</h2><p>Your personal AI assistant. How can I help you today?</p>`,
+            text: "I'm <strong>AlphaMind</strong> 🤖<br>Your personal AI assistant. How can I help you today?",
             sender: "ai",
           },
         ]);
@@ -75,7 +99,8 @@ const Ai = ({ isDark }) => {
       );
 
       const reply =
-        response.data.candidates?.[0]?.content?.parts?.[0]?.text || "No response";
+        response.data.candidates?.[0]?.content?.parts?.[0]?.text ||
+        "No response";
 
       setMessages((prev) => [...prev, { text: reply, sender: "ai" }]);
     } catch (error) {
@@ -90,12 +115,11 @@ const Ai = ({ isDark }) => {
 
   return (
     <section>
+      {/* Sound Effect */}
+      <audio ref={soundRef} src="/notify.mp3" preload="auto" />
+
       {/* Floating Button */}
-      <div
-        ref={iconRef}
-        className="fixed bottom-4 right-4 z-50"
-      
-      >
+      <div ref={iconRef} className="fixed bottom-4 right-4 z-50">
         <img
           src={isDark ? "/AID.png" : "/AI.png"}
           alt="AI Assistant"
@@ -108,8 +132,7 @@ const Ai = ({ isDark }) => {
       {showMessenger && (
         <div
           ref={messengerRef}
-          className="fixed bottom-20 right-6 w-80 min-h-[70vh] max-h-[85vh] flex flex-col rounded-3xl bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 shadow-2xl z-50 overflow-hidden"
-          style={{ animation: "slideUpFade 0.35s ease forwards" }}
+          className="fixed bottom-16 sm:bottom-20 right-6 w-80 min-h-[70svh] max-h-[85svh] flex flex-col rounded-3xl bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 shadow-2xl z-50 overflow-hidden animate-slideUpFade"
         >
           {/* Header */}
           <div className="flex justify-between items-center px-5 py-4 bg-gray-100 dark:bg-gray-800 border-b dark:border-gray-700">
@@ -131,30 +154,20 @@ const Ai = ({ isDark }) => {
           </div>
 
           {/* Messages */}
-          <div
-            className="flex-1 overflow-y-auto p-4 space-y-3 hide-scrollbar"
-            style={{
-              scrollbarWidth: "thin",
-              scrollbarColor: isDark ? "#4b5563 transparent" : "#a0aec0 transparent",
-            }}
-          >
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 scrollbar-thin scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
             {messages.map((msg, index) => (
               <div
                 key={index}
-                className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                className={`flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
               >
                 <div
-                  className={`px-5 py-3 rounded-2xl text-sm max-w-[75%] break-words shadow-sm ${
+                  className={`px-3 py-3 rounded-2xl text-sm max-w-[90%] break-words shadow-sm ${
                     msg.sender === "user"
                       ? "bg-blue-600 text-white"
                       : "bg-gray-200 text-gray-900 dark:bg-gray-700 dark:text-white"
                   }`}
-                  style={{
-                    boxShadow:
-                      msg.sender === "user"
-                        ? "0 2px 6px rgba(59, 130, 246, 0.5)"
-                        : "0 2px 6px rgba(156, 163, 175, 0.4)",
-                  }}
                 >
                   {msg.sender === "ai" ? (
                     <div dangerouslySetInnerHTML={{ __html: msg.text }} />
@@ -164,8 +177,6 @@ const Ai = ({ isDark }) => {
                 </div>
               </div>
             ))}
-
-            {/* Typing Indicator */}
             {loading && (
               <div className="flex justify-start">
                 <div className="bg-gray-300 dark:bg-gray-600 px-4 py-2 rounded-2xl flex items-center space-x-1">
@@ -175,6 +186,7 @@ const Ai = ({ isDark }) => {
                 </div>
               </div>
             )}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}
@@ -186,46 +198,28 @@ const Ai = ({ isDark }) => {
               value={inputText}
               onChange={handleInputChange}
               placeholder="Type your message..."
-              className="flex-1 resize-none h-12 px-4 py-2 text-sm border rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-blue-400 transition scrollbar-hidden"
+              className="flex-1 resize-none h-10 px-4 py-2 text-sm border rounded-3xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:focus:ring-blue-400 transition scrollbar-hidden"
               rows={1}
             />
             <button
               type="submit"
               disabled={loading}
-              className="bg-blue-600 disabled:bg-blue-400 text-white px-5 py-2 rounded-3xl hover:bg-blue-700 disabled:cursor-not-allowed transition"
+              className="bg-blue-600 disabled:bg-blue-400 text-white px-5 rounded-3xl hover:bg-blue-700 disabled:cursor-not-allowed transition"
             >
               Send
             </button>
           </form>
+        </div>
+      )}
 
-          {/* Styles */}
-          <style>{`
-            @keyframes slideUpFade {
-              0% { opacity: 0; transform: translateY(20px); }
-              100% { opacity: 1; transform: translateY(0); }
-            }
-
-            .hide-scrollbar::-webkit-scrollbar { width: 6px; }
-            .hide-scrollbar::-webkit-scrollbar-track { background: transparent; }
-            .hide-scrollbar::-webkit-scrollbar-thumb {
-              background-color: rgba(107, 114, 128, 0.5);
-              border-radius: 3px;
-            }
-
-            .dot {
-              animation-name: bounce;
-              animation-duration: 1.2s;
-              animation-iteration-count: infinite;
-              animation-timing-function: ease-in-out;
-            }
-            .animation-delay-200 { animation-delay: 0.2s; }
-            .animation-delay-400 { animation-delay: 0.4s; }
-
-            @keyframes bounce {
-              0%, 80%, 100% { transform: translateY(0); }
-              40% { transform: translateY(-6px); }
-            }
-          `}</style>
+      {/* Notification */}
+       {showNotification && !showMessenger && (
+        <div className="fixed bottom-20 right-6 z-50  animate-fadeIn">
+          <div className="relative max-w-xs bg-white text-gray-900 shadow-md dark:bg-white p-4 rounded-2xl  text-sm font-medium">
+            👋 Hello! I'm <strong>AlphaMind</strong>, your AI assistant. How can I assist you today?
+            {/* Speech bubble tail */}
+            <div className="absolute bottom-[-8px] right-4 w-4 h-4 shadow-md bg-white rotate-45 "></div>
+          </div>
         </div>
       )}
     </section>
