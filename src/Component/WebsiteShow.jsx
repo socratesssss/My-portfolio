@@ -97,7 +97,7 @@ const WebsiteShow = () => {
             className="flex gap-6 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth px-4 pb-4 scrollbar-hide"
           >
             {websites.map((site, index) => (
-              <motion.div
+              <div
                 key={site.id}
                 className="snap-center w-[90vw] flex-shrink-0"
                 initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ const WebsiteShow = () => {
                   link={site.link}
                     des={site.des}
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
 

@@ -14,6 +14,7 @@ import FaqSection from "./Faq";
 import Footer from "./Footer";
 import ReviewSection from "./Review";
 import SendEmail from "./Email";
+import Ai from "./Ai";
 
 function Hero({ toggleDarkMode, isDark }) {
   // Contact details
@@ -56,6 +57,7 @@ function Hero({ toggleDarkMode, isDark }) {
   return (
     <section className=" bg-white dark:bg-[#0B192C] w-full">
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
+      <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row pt-14 md:pt-0 mt-10 md:mt-20">
           {/* Left Section */}

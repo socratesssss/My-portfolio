@@ -91,7 +91,7 @@ function ReviewSection() {
             className="overflow-x-auto  scrollbar-hidden snap-x snap-mandatory scroll-smooth flex gap-4 w-full"
           >
             {reviews.map((review, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="snap-center w-[90vw] bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md flex-shrink-0"
                 initial={{ opacity: 0, y: 20 }}
@@ -120,7 +120,7 @@ function ReviewSection() {
                   ))}
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">{review.review}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
 

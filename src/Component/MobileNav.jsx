@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import NightlightIcon from "@mui/icons-material/Nightlight";
-import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 function Nav({ toggleDarkMode, isDark }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -40,33 +40,26 @@ function Nav({ toggleDarkMode, isDark }) {
           }
         `}
       >
-          <button onClick={toggleDarkMode}>
-    {isDark? 
-      
-       <WbSunnyIcon
-          className="text-white"
-          sx={{
-            fontSize: 28,
-          }}
-        />
-     
-       :
-          <NightlightIcon
-          className="text-black"
-          sx={{
-            fontSize: 28,
-          }}
-        />
-      
-      
-    
-
-    }
-      </button>
+        <button onClick={toggleDarkMode}>
+          {isDark ? (
+            <WbSunnyIcon
+              className="text-white"
+              sx={{
+                fontSize: 28,
+              }}
+            />
+          ) : (
+            <NightlightIcon
+              className="text-black"
+              sx={{
+                fontSize: 28,
+              }}
+            />
+          )}
+        </button>
 
         {!mobileOpen && (
           <div className="flex gap-2">
-           
             <button className="md:hidden" onClick={handleDrawerToggle}>
               <MenuIcon
                 className="text-black dark:text-white"
@@ -93,17 +86,14 @@ function Nav({ toggleDarkMode, isDark }) {
           ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-       
-
         <header>
-        
           <img src="/logo2.png" className="w-[34px]" alt="" />
           <button
-          className="absolute top-4 right-4 z-50"
-          onClick={handleDrawerToggle}
-        >
-          <CloseIcon sx={{ fontSize: 32, color: "white" }} />
-        </button>
+            className="absolute top-4 right-4 z-50"
+            onClick={handleDrawerToggle}
+          >
+            <CloseIcon sx={{ fontSize: 32, color: "white" }} />
+          </button>
         </header>
 
         {/* Navigation Links */}
@@ -142,7 +132,7 @@ function Nav({ toggleDarkMode, isDark }) {
             rel="noopener noreferrer"
             className="inline-block border-b"
           >
-            <WhatsAppIcon sx={{ fontSize: 30,color:"white" }} />
+            <WhatsAppIcon sx={{ fontSize: 30, color: "white" }} />
           </a>
         </footer>
       </div>
