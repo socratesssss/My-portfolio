@@ -3,25 +3,25 @@ import { motion } from "framer-motion";
 
 const reviews = [
   {
-    name: "John Doe",
-    role: "CEO, TechCorp",
+    name: "Cristiano Ronaldo",
+    role: "CR7,Club=>Al-Nassr",
     review:
       "Sijan is an outstanding developer. He delivered everything ahead of schedule and with great attention to detail.",
-    image: "/reviewer1.jpg",
+    image: "/ronaldo.jpg",
   },
   {
-    name: "Sarah Smith",
+    name: "Tony Stark",
     role: "Project Manager, DevAgency",
     review:
       "His work on our project was professional and efficient. Great communication and clean code.",
-    image: "/reviewer2.jpg",
+    image: "/Tony-Stark.webp",
   },
   {
-    name: "Ali Khan",
-    role: "CTO, StartupX",
+    name: "Elon Musk",
+    role: "Tesla  Chief Executive Officer",
     review:
       "Sijan brought our vision to life. His UI/UX understanding is exceptional. Highly recommend.",
-    image: "/reviewer3.jpg",
+    image: "/elon.webp",
   },
  
 ];
@@ -42,17 +42,17 @@ function ReviewSection() {
 
   return (
     <section className="bg-gray-100 dark:bg-[#0B192C] py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
+      <div className="container px-4 mx-auto">
+        <h2 className="mb-12 text-3xl font-bold text-center text-gray-800 md:text-4xl dark:text-white">
           What Clients Say
         </h2>
 
         {/* Desktop view */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden grid-cols-1 gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
           {reviews.map((review, index) => (
             <motion.div
               key={index}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md"
+              className="p-6 bg-white shadow-md dark:bg-gray-800 rounded-xl"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -62,7 +62,7 @@ function ReviewSection() {
                 <img
                   src={review.image}
                   alt={review.name}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="object-cover w-12 h-12 rounded-full"
                 />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -75,7 +75,7 @@ function ReviewSection() {
               </div>
               <div className="flex mb-2">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-lg">★</span>
+                  <span key={i} className="text-lg text-yellow-400">★</span>
                 ))}
               </div>
               <p className="text-gray-700 dark:text-gray-300">{review.review}</p>
@@ -84,11 +84,11 @@ function ReviewSection() {
         </div>
 
         {/* Mobile carousel */}
-        <div className="md:hidden -mx-4 px-4">
+        <div className="px-4 -mx-4 md:hidden">
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="overflow-x-auto  scrollbar-hidden snap-x snap-mandatory scroll-smooth flex gap-4 w-full"
+            className="flex w-full gap-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth"
           >
             {reviews.map((review, index) => (
               <div
@@ -103,7 +103,7 @@ function ReviewSection() {
                   <img
                     src={review.image}
                     alt={review.name}
-                    className="w-12 h-12 rounded-full object-cover"
+                    className="object-cover w-12 h-12 rounded-full"
                   />
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -116,7 +116,7 @@ function ReviewSection() {
                 </div>
                 <div className="flex mb-2">
                   {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-yellow-400 text-lg">★</span>
+                    <span key={i} className="text-lg text-yellow-400">★</span>
                   ))}
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">{review.review}</p>

@@ -9,9 +9,9 @@ const faqs = [
       "I work with HTML, CSS, JavaScript, React, Next.js, Tailwind CSS, TypeScript, and Framer Motion.",
   },
   {
-    question: "Can I hire you for freelance work?",
+    question: "How will I manage my website / web application ?",
     answer:
-      "Yes! I'm available for freelance projects. You can contact me through the form or my email.",
+      "You will get an admin panel along with a guide document.",
   },
   {
     question: "Is your portfolio responsive?",
@@ -58,12 +58,12 @@ function FaqSection() {
       ref={sectionRef}
       className="bg-white container mx-auto dark:bg-[#1e293b] py-10 px-4 md:px-20"
     >
-      <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-6">
+      <h2 className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
         Frequently Asked Questions
       </h2>
 
       <motion.div
-        className="space-y-4 max-w-3xl mx-auto"
+        className="max-w-3xl mx-auto space-y-4"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -72,11 +72,11 @@ function FaqSection() {
           <motion.div
             key={i}
             variants={itemVariants}
-            className="border border-gray-300 dark:border-gray-600 rounded-lg"
+            className="border border-gray-300 rounded-lg dark:border-gray-600"
           >
             <button
               onClick={() => toggle(i)}
-              className="w-full flex justify-between items-center p-4 text-left dark:text-white"
+              className="flex items-center justify-between w-full p-4 text-left dark:text-white"
             >
               <span className="font-medium">{faq.question}</span>
               <ChevronDown
@@ -85,20 +85,23 @@ function FaqSection() {
                 }`}
               />
             </button>
+<AnimatePresence initial={false}>
+  {openIndex === i && (
+    <motion.div
+      initial={false}
+      animate={{ height: "auto", opacity: 1 }}
+      exit={{ height: 0, opacity: 0 }}
+      transition={{ duration: 0 }} // No animation on open
+      className="px-4 pb-4 overflow-hidden text-gray-600 dark:text-gray-300"
+    >
+      {faq.answer}
+    </motion.div>
+  )}
+</AnimatePresence>
 
-            <AnimatePresence>
-              {openIndex === i && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden px-4 pb-4 text-gray-600 dark:text-gray-300"
-                >
-                  {faq.answer}
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+
+
           </motion.div>
         ))}
       </motion.div>
