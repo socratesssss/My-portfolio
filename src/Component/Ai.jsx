@@ -18,7 +18,7 @@ const Ai = ({ isDark }) => {
       if (next && messages.length === 0) {
         setMessages([
           {
-            text: "👋 Hello! I'm an <strong>AlphaMind</strong>, your AI assistant. How can I assist you today?",
+            text: "👋 Hello! I'm <strong>AlphaMind</strong>, your AI assistant. How can I assist you today?",
             sender: "ai",
           },
         ]);
