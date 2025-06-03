@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import Nav from "./MobileNav";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
@@ -17,24 +18,19 @@ import SendEmail from "./Email";
 import Ai from "./Ai";
 
 function Hero({ toggleDarkMode, isDark }) {
-  // Contact details
-  const Mobile = "880 183952641";
-  const email = "mohammadsijan381@gamil.com";
-  const phone = "8801839528641";
+  const Mobile = "8801839528641";
+  const email = "mohammadsijan381@gmail.com";
   const message = "Hello! I found your website.";
-  const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const whatsappLink = `https://wa.me/${Mobile}?text=${encodeURIComponent(message)}`;
 
-  // Open resume PDF
   const openPDF = () => {
     window.open("/Resume.pdf", "_blank");
   };
 
-  // Full text for typewriter effect
   const fullText = " Mohammad Sijan";
-  const [displayText, setDisplayText] = useState(""); // State for typed text
-  const [started, setStarted] = useState(false); // State to start the typing effect
+  const [displayText, setDisplayText] = useState("");
+  const [started, setStarted] = useState(false);
 
-  // Start typing effect on mount
   useEffect(() => {
     if (!started) return;
 
@@ -43,45 +39,52 @@ function Hero({ toggleDarkMode, isDark }) {
       if (index < fullText.length) {
         setDisplayText((prev) => prev + fullText.charAt(index));
         index++;
-        setTimeout(typeLetter, 100); // Delay before next letter
+        setTimeout(typeLetter, 100);
       }
     };
     typeLetter();
   }, [started]);
 
-  // Trigger the typing effect once component is mounted
   useEffect(() => {
     setStarted(true);
   }, []);
 
-  // seo0--------------------
- useEffect(() => {
-    const script = document.createElement("script");
-    script.type = "application/ld+json";
-    script.innerHTML = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mohammad Sijan",
-      "url": "https://portfolio-sijan.netlify.app/",
-      "sameAs": [
-        "https://www.linkedin.com/in/mohammad-sijan-883205341/",
-        "https://github.com/socratesssss",
-        "https://wa.me/8801839528641"
-      ],
-      "email": "mailto:mohammadsijan381@gmail.com",
-      "telephone": "+8801839528641"
-    });
-    document.head.appendChild(script);
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
+  // Structured Data for SEO
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammad Sijan",
+    "url": "https://portfolio-sijan.netlify.app/",
+    "sameAs": [
+      "https://www.linkedin.com/in/mohammad-sijan-883205341/",
+      "https://github.com/socratesssss",
+      "https://wa.me/8801839528641"
+    ],
+    "email": "mailto:mohammadsijan381@gmail.com",
+    "telephone": "+8801839528641"
+  };
 
   return (
-    <section className=" bg-white scrollbar-hidden dark:bg-[#0B192C] w-full">
+    <section className="bg-white scrollbar-hidden dark:bg-[#0B192C] w-full">
+      <Helmet>
+        <title>Mohammad Sijan | Frontend Developer Portfolio</title>
+        <meta
+          name="description"
+          content="Mohammad Sijan is a skilled frontend developer from Bangladesh. Explore his projects, skills, and contact information."
+        />
+        <meta property="og:title" content="Mohammad Sijan | Frontend Developer" />
+        <meta property="og:description" content="Explore the portfolio of Mohammad Sijan, a frontend developer from Bangladesh." />
+        <meta property="og:image" content="https://portfolio-sijan.netlify.app/sijan2.jpg" />
+        <meta property="og:url" content="https://portfolio-sijan.netlify.app/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd)}
+        </script>
+      </Helmet>
+
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
+
       <div className="container mx-auto">
         <div className="flex flex-col mt-10 md:flex-row pt-14 md:pt-0 md:mt-20">
           {/* Left Section */}
@@ -94,8 +97,6 @@ function Hero({ toggleDarkMode, isDark }) {
             >
               <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-100 md:ml-20 mx-10 text-5xl md:text-6xl md:w-[400px] min-h-[90px]">
                 <h3>Hello, I am...</h3>
-               
-
                 <strong className="font-bold">
                   {displayText}
                   <span className="animate-pulse">.</span>
@@ -116,15 +117,12 @@ function Hero({ toggleDarkMode, isDark }) {
               className="mx-10 mt-8 md:ml-20 md:mt-6"
             >
               <p className="text-xl text-black md:text-2xl dark:text-white">
-                <strong className="italic font-bold">Web Developer </strong>based in Bangladesh
+                <strong className="italic font-bold">Web Developer</strong> based in Bangladesh
               </p>
 
               <motion.button
-                // whileHover={{ scale: 1.05 }}
-                // whileTap={{ scale: 0.95 }}
                 onClick={openPDF}
-                 className=" md:px-6 transition-all duration-300   md:py-2 md:mt-10 mt-8 text-white  bg-gradient-to-r  from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br sm:focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2  "
-                // className="flex items-center px-3 py-1 mt-8 font-semibold text-white transition-all duration-300 shadow-2xl cursor-pointer bg-slate-950 dark:bg-white dark:text-black md:px-6 drop-shadow-2xl md:py-2 md:mt-10"
+                className="md:px-6 transition-all duration-300 md:py-2 md:mt-10 mt-8 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2"
               >
                 See Resume
                 <NorthEastIcon
@@ -140,25 +138,12 @@ function Hero({ toggleDarkMode, isDark }) {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col md:flex-row gap-4 md:w-[120%] justify-between mt-8 md:mt-16"
               >
-                <a
-                  href={`tel:${Mobile}`}
-                  className="font-semibold text-black dark:text-white"
-                >
-                  <LocalPhoneIcon
-                    sx={{ color: "#00BDDF" }}
-                    className="p-1 bg-gray-300 rounded-full"
-                  />
+                <a href={`tel:${Mobile}`} className="font-semibold text-black dark:text-white">
+                  <LocalPhoneIcon className="p-1 bg-gray-300 rounded-full" sx={{ color: "#00BDDF" }} />
                   +{Mobile}
                 </a>
-                <a
-                  href={`mailto:${email}`}
-                  className="font-semibold text-black dark:text-white"
-                >
-                  <Email
-                    className="p-1 bg-gray-300 rounded-full"
-                    sx={{ color: "#00BDDF" }}
-                  />{" "}
-                  {email}
+                <a href={`mailto:${email}`} className="font-semibold text-black dark:text-white">
+                  <Email className="p-1 bg-gray-300 rounded-full" sx={{ color: "#00BDDF" }} /> {email}
                 </a>
               </motion.div>
 
@@ -173,13 +158,10 @@ function Hero({ toggleDarkMode, isDark }) {
                   href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
                   target="_blank"
                   rel="noreferrer"
-                   aria-label="Linkedin"
+                  aria-label="Linkedin"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
-                  <LinkedInIcon
-                    className="text-[#1469C9]"
-                    sx={{ fontSize: 30 }}
-                  />
+                  <LinkedInIcon className="text-[#1469C9]" sx={{ fontSize: 30 }} />
                 </a>
                 <a
                   href="https://github.com/socratesssss"
@@ -188,16 +170,13 @@ function Hero({ toggleDarkMode, isDark }) {
                   aria-label="GitHub"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
-                  <GitHubIcon
-                    sx={{ fontSize: 30 }}
-                    className="text-black dark:text-white"
-                  />
+                  <GitHubIcon sx={{ fontSize: 30 }} className="text-black dark:text-white" />
                 </a>
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                   aria-label="Whatsapp"
+                  aria-label="Whatsapp"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <WhatsAppIcon sx={{ fontSize: 30, color: "green" }} />
@@ -206,13 +185,10 @@ function Hero({ toggleDarkMode, isDark }) {
                   href={`mailto:${email}`}
                   target="_blank"
                   rel="noreferrer"
-                   aria-label="Email"
+                  aria-label="Email"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
-                  <AlternateEmailIcon
-                    sx={{ fontSize: 30 }}
-                    className="text-black dark:text-white"
-                  />
+                  <AlternateEmailIcon sx={{ fontSize: 30 }} className="text-black dark:text-white" />
                 </a>
               </motion.div>
             </motion.div>
@@ -224,9 +200,13 @@ function Hero({ toggleDarkMode, isDark }) {
             initial={{ opacity: 0, y: 50 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className=" md:-mt-10"
+            className="md:-mt-10"
           >
-          <img src="/sijan2.jpg" className="rounded-full mx-auto sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full " alt="Mohammad sijan" />
+            <img
+              src="/sijan2.jpg"
+              className="rounded-full mx-auto sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full"
+              alt="Mohammad Sijan - Frontend Developer from Bangladesh"
+            />
           </motion.div>
         </div>
       </div>
@@ -234,8 +214,8 @@ function Hero({ toggleDarkMode, isDark }) {
       <Myskills />
       <WebsiteShow />
       <FaqSection />
-      <ReviewSection/>
-      <SendEmail/>
+      <ReviewSection />
+      <SendEmail />
       <Footer />
     </section>
   );
