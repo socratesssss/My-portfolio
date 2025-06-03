@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin 'tailwind-scrollbar';
 @custom-variant dark (&:where(.dark, .dark *));
 .scrollbar-hidden::-webkit-scrollbar {
     display: none;
@@ -9,6 +10,11 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+
+  .html {
+  @apply scrollbar-thin scrollbar-thumb-[#00BDDF] scrollbar-track-gray-200 dark:scrollbar-thumb-blue-300 dark:scrollbar-track-gray-800;
+}
+
 
    @keyframes slideUpFade {
           0% { opacity: 0; transform: translateY(20px); }

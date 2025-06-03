@@ -65,13 +65,13 @@ const WebsiteShow = () => {
 
   return (
     <section className="bg-gray-50 dark:bg-[#0B192C] py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">
+      <div className="container px-4 mx-auto">
+        <h2 className="mb-12 text-3xl font-bold text-center text-gray-800 md:text-4xl dark:text-white">
           Featured Projects
         </h2>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="hidden grid-cols-1 gap-8 md:grid md:grid-cols-2 lg:grid-cols-3">
           {websites.map((site, index) => (
             <motion.div
               key={site.id}
@@ -91,10 +91,10 @@ const WebsiteShow = () => {
         </div>
 
         {/* Mobile Carousel */}
-        <div className="md:hidden -mx-4">
+        <div className="-mx-4 md:hidden">
           <div
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth px-4 pb-4 scrollbar-hide"
+            className="flex gap-6 px-4 pb-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
           >
             {websites.map((site, index) => (
               <div
@@ -116,13 +116,13 @@ const WebsiteShow = () => {
           </div>
 
           {/* Dot Pagination */}
-          <div className="flex justify-center mt-4 gap-2">
+          <div className="flex justify-center gap-2 mt-4">
             {websites.map((_, i) => (
               <span
                 key={i}
                 className={`h-2 w-2 rounded-full transition-all duration-300 ${
                   i === activeIndex
-                    ? "bg-blue-500 scale-125  dark:bg-white"
+                    ? "bg-[#00BDDF] scale-125  dark:bg-white"
                     : "bg-gray-400 opacity-50 dark:bg-gray-500"
                 }`}
               ></span>

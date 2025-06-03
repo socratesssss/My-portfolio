@@ -55,11 +55,11 @@ function Hero({ toggleDarkMode, isDark }) {
   }, []);
 
   return (
-    <section className=" bg-white dark:bg-[#0B192C] w-full">
+    <section className=" bg-white scrollbar-hidden dark:bg-[#0B192C] w-full">
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row pt-14 md:pt-0 mt-10 md:mt-20">
+        <div className="flex flex-col mt-10 md:flex-row pt-14 md:pt-0 md:mt-20">
           {/* Left Section */}
           <div>
             <motion.div
@@ -78,7 +78,7 @@ function Hero({ toggleDarkMode, isDark }) {
                 </strong>
               </div>
               <img
-                className="absolute dark:hidden w-30 md:-mt-48 -mt-36 ml-6 md:ml-14"
+                className="absolute ml-6 dark:hidden w-30 md:-mt-48 -mt-36 md:ml-14"
                 src="./Vector (2).png"
                 alt="Decorative vector"
               />
@@ -89,18 +89,18 @@ function Hero({ toggleDarkMode, isDark }) {
               initial={{ opacity: 0, y: 30 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="md:ml-20 mx-10 mt-8 md:mt-6"
+              className="mx-10 mt-8 md:ml-20 md:mt-6"
             >
-              <p className="md:text-2xl text-black dark:text-white text-xl">
-                <strong className="font-bold italic">Web Developer </strong>based in Bangladesh
+              <p className="text-xl text-black md:text-2xl dark:text-white">
+                <strong className="italic font-bold">Web Developer </strong>based in Bangladesh
               </p>
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                // whileHover={{ scale: 1.05 }}
+                // whileTap={{ scale: 0.95 }}
                 onClick={openPDF}
-                 className=" md:px-6 transition-all duration-300  md:py-2 md:mt-10 mt-8 text-white  bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2"
-                // className="bg-slate-950 dark:bg-white text-white dark:text-black font-semibold md:px-6 px-3 shadow-2xl transition-all duration-300 drop-shadow-2xl cursor-pointer py-1 md:py-2 md:mt-10 mt-8 flex items-center"
+                 className=" md:px-6 transition-all duration-300   md:py-2 md:mt-10 mt-8 text-white  bg-gradient-to-r  from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br sm:focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2  "
+                // className="flex items-center px-3 py-1 mt-8 font-semibold text-white transition-all duration-300 shadow-2xl cursor-pointer bg-slate-950 dark:bg-white dark:text-black md:px-6 drop-shadow-2xl md:py-2 md:mt-10"
               >
                 See Resume
                 <NorthEastIcon
@@ -121,8 +121,8 @@ function Hero({ toggleDarkMode, isDark }) {
                   className="font-semibold text-black dark:text-white"
                 >
                   <LocalPhoneIcon
-                    sx={{ color: "black" }}
-                    className="bg-gray-100 p-1 rounded-full"
+                    sx={{ color: "#00BDDF" }}
+                    className="p-1 bg-gray-300 rounded-full"
                   />
                   +{Mobile}
                 </a>
@@ -131,8 +131,8 @@ function Hero({ toggleDarkMode, isDark }) {
                   className="font-semibold text-black dark:text-white"
                 >
                   <Email
-                    className="bg-gray-100 p-1 rounded-full"
-                    sx={{ color: "black" }}
+                    className="p-1 bg-gray-300 rounded-full"
+                    sx={{ color: "#00BDDF" }}
                   />{" "}
                   {email}
                 </a>
@@ -143,13 +143,13 @@ function Hero({ toggleDarkMode, isDark }) {
                 initial={{ opacity: 0, scale: 0.9 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
-                className="flex py-14 gap-4"
+                className="flex gap-4 py-14"
               >
                 <a
                   href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block border-b dark:border-white"
+                  className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <LinkedInIcon
                     className="text-[#1469C9]"
@@ -160,7 +160,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href="https://github.com/socratesssss"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block dark:border-white border-b"
+                  className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <GitHubIcon
                     sx={{ fontSize: 30 }}
@@ -171,7 +171,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block dark:border-white border-b"
+                  className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <WhatsAppIcon sx={{ fontSize: 30, color: "green" }} />
                 </a>
@@ -179,7 +179,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href={`mailto:${email}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-block border-b dark:border-white"
+                  className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <AlternateEmailIcon
                     sx={{ fontSize: 30 }}
@@ -196,9 +196,9 @@ function Hero({ toggleDarkMode, isDark }) {
             initial={{ opacity: 0, y: 50 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="md:-mt-10"
+            className=" md:-mt-10"
           >
-            <img src="/Img.png" className="w-full" alt="Img.png" />
+          <img src="/sijan2.jpg" className="rounded-full mx-auto sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full " alt="Img.png" />
           </motion.div>
         </div>
       </div>

@@ -19,17 +19,17 @@ function Myskills() {
   return (
     <section className="dark:bg-[#0f172a] bg-gray-50 py-10 container mx-auto transition-colors duration-500">
       <div className="mx-4 md:mx-20">
-        <div className="flex justify-center items-center py-3">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
+        <div className="flex items-center justify-center py-3">
+          <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-800 md:text-3xl dark:text-white">
             My Skills <SchoolIcon sx={{ marginBottom: "4px" }} />
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mt-6">
+        <div className="grid grid-cols-2 gap-8 mt-6 sm:grid-cols-3 md:grid-cols-5">
           {skills.map((info, i) => (
             <motion.div
               key={i}
-              className="flex flex-col items-center justify-center p-4 bg-white dark:bg-[#1e293b] rounded-lg shadow hover:shadow-md dark:hover:shadow-blue-800 transition duration-300"
+              className="flex flex-col items-center justify-center p-4 bg-white dark:bg-[#1e293b] rounded-lg shadow hover:shadow-md dark:hover:shadow-[#00BDDF] transition duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -41,7 +41,7 @@ function Myskills() {
               <img
                 src={info.src}
                 alt={info.name}
-                className="h-10 md:h-16 object-contain"
+                className="object-contain h-10 md:h-16"
               />
               <p className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                 {info.name}

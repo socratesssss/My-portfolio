@@ -130,7 +130,7 @@ function ReviewSection() {
               <span
                 key={idx}
                 className={`w-2.5 h-2.5 rounded-full ${
-                  idx === activeIndex ? "bg-blue-500 scale-125  dark:bg-white" : "bg-gray-400 opacity-50 dark:bg-gray-5000"
+                  idx === activeIndex ? "bg-[#00BDDF] scale-125  dark:bg-white" : "bg-gray-400 opacity-50 dark:bg-gray-5000"
                 }`}
               />
             ))}

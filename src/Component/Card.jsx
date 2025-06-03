@@ -11,8 +11,8 @@ import Button from '@mui/material/Button';
 export default function ActionAreaCard({image,name,link,des}) {
 
   return (
-    <Card sx={{ maxWidth: 405 }}
-  >
+   <div className='  hover:shadow-md dark:hover:shadow-[#00BDDF]'>
+     <Card sx={{ maxWidth: 405 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -21,7 +21,7 @@ export default function ActionAreaCard({image,name,link,des}) {
           image={image}
           alt="green iguana"
         />
-        <CardContent className='dark:bg-gray-800 border-b dark:border-gray-600 border-gray-200'>
+        <CardContent className='border-b border-gray-200 dark:bg-gray-800 dark:border-gray-600'>
           <Typography gutterBottom variant="h5" className='dark:text-white' component="div">
           {name}
           </Typography>
@@ -35,10 +35,11 @@ export default function ActionAreaCard({image,name,link,des}) {
       
 
       <CardActions className='dark:bg-gray-800'>
-        <Button size="small"   target="_blank"     component="a" href={link}>Live Demo</Button>
+        <Button size="small"   target="_blank" sx={{color:'#00BDDF'}}   component="a" href={link}>Live Demo</Button>
       </CardActions>
    
      
     </Card>
+   </div>
   );
 }
