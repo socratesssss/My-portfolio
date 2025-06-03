@@ -54,6 +54,30 @@ function Hero({ toggleDarkMode, isDark }) {
     setStarted(true);
   }, []);
 
+  // seo0--------------------
+ useEffect(() => {
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohammad Sijan",
+      "url": "https://portfolio-sijan.netlify.app/",
+      "sameAs": [
+        "https://www.linkedin.com/in/mohammad-sijan-883205341/",
+        "https://github.com/socratesssss",
+        "https://wa.me/8801839528641"
+      ],
+      "email": "mailto:mohammadsijan381@gmail.com",
+      "telephone": "+8801839528641"
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <section className=" bg-white scrollbar-hidden dark:bg-[#0B192C] w-full">
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
@@ -149,6 +173,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
                   target="_blank"
                   rel="noreferrer"
+                   aria-label="Linkedin"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <LinkedInIcon
@@ -160,6 +185,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href="https://github.com/socratesssss"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="GitHub"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <GitHubIcon
@@ -171,6 +197,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                   aria-label="Whatsapp"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <WhatsAppIcon sx={{ fontSize: 30, color: "green" }} />
@@ -179,6 +206,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   href={`mailto:${email}`}
                   target="_blank"
                   rel="noreferrer"
+                   aria-label="Email"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
                   <AlternateEmailIcon
@@ -198,7 +226,7 @@ function Hero({ toggleDarkMode, isDark }) {
             transition={{ duration: 0.8, delay: 0.5 }}
             className=" md:-mt-10"
           >
-          <img src="/sijan2.jpg" className="rounded-full mx-auto sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full " alt="Img.png" />
+          <img src="/sijan2.jpg" className="rounded-full mx-auto sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full " alt="Mohammad sijan" />
           </motion.div>
         </div>
       </div>
