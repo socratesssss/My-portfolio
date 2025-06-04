@@ -1,3 +1,4 @@
+
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ActionAreaCard from "./Card";
@@ -96,23 +97,26 @@ const WebsiteShow = () => {
             ref={scrollRef}
             className="flex gap-6 px-4 pb-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
           >
-            {websites.map((site, index) => (
-              <div
-                key={site.id}
-                className="snap-center w-[90vw] flex-shrink-0"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <ActionAreaCard
-                  name={site.name}
-                  image={site.img}
-                  link={site.link}
-                    des={site.des}
-                />
-              </div>
-            ))}
+         {websites.map((site, index) => (
+  <motion.div
+    key={site.id}
+    className="snap-center w-[90vw] flex-shrink-0"
+    {...(index === 0 && {
+      initial: { opacity: 0, y: 20 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true },
+      transition: { duration: 0.5, delay: 0.2 },
+    })}
+  >
+    <ActionAreaCard
+      name={site.name}
+      image={site.img}
+      link={site.link}
+      des={site.des}
+    />
+  </motion.div>
+))}
+
           </div>
 
           {/* Dot Pagination */}

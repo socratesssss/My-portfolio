@@ -85,58 +85,66 @@ function ReviewSection() {
         </div>
 
         {/* Mobile carousel */}
-        <div className="px-4 -mx-4 md:hidden">
-          <div
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="flex w-full gap-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth"
-          >
-            {reviews.map((review, index) => (
-              <div
-                key={index}
-                className="snap-center w-[90vw] bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md flex-shrink-0"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <img
-                    src={review.image}
-                    alt={review.name}
-                    className="object-cover w-12 h-12 rounded-full"
-                  />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      {review.name}
-                    </h3>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {review.role}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-lg text-yellow-400">★</span>
-                  ))}
-                </div>
-                <p className="text-gray-700 dark:text-gray-300">{review.review}</p>
-              </div>
+      <div className="px-4 -mx-4 md:hidden">
+  <div
+    ref={scrollRef}
+    onScroll={handleScroll}
+    className="flex w-full gap-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth"
+  >
+    {reviews.map((review, index) => {
+      const Card = index === 0 ? motion.div : 'div';
+      return (
+        <Card
+          key={index}
+          className="snap-center w-[90vw] bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md flex-shrink-0"
+          {...(index === 0 && {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            viewport: { once: true },
+            transition: { duration: 0.5, delay: 0.2 },
+          })}
+        >
+          <div className="flex items-center gap-4 mb-4">
+            <img
+              src={review.image}
+              alt={review.name}
+              className="object-cover w-12 h-12 rounded-full"
+            />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                {review.name}
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                {review.role}
+              </p>
+            </div>
+          </div>
+          <div className="flex mb-2">
+            {[...Array(5)].map((_, i) => (
+              <span key={i} className="text-lg text-yellow-400">★</span>
             ))}
           </div>
+          <p className="text-gray-700 dark:text-gray-300">{review.review}</p>
+        </Card>
+      );
+    })}
+  </div>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center mt-4 space-x-2">
-            {reviews.map((_, idx) => (
-              <span
-                key={idx}
-                className={`w-2.5 h-2.5 rounded-full ${
-                  idx === activeIndex ? "bg-[#00BDDF] scale-125  dark:bg-white" : "bg-gray-400 opacity-50 dark:bg-gray-5000"
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+  {/* Dot indicators */}
+  <div className="flex justify-center mt-4 space-x-2">
+    {reviews.map((_, idx) => (
+      <span
+        key={idx}
+        className={`w-2.5 h-2.5 rounded-full ${
+          idx === activeIndex
+            ? "bg-[#00BDDF] scale-125 dark:bg-white"
+            : "bg-gray-400 opacity-50 dark:bg-gray-500"
+        }`}
+      />
+    ))}
+  </div>
+</div>
+
       </div>
     </section>
   );

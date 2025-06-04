@@ -19,7 +19,7 @@ import Ai from "./Ai";
 function Hero({ toggleDarkMode, isDark }) {
   const Mobile = "8801839528641";
   const email = "mohammadsijan381@gmail.com";
-  const message = "Hello! I found your website.";
+  const message = "Hello! I found you on your website.";
   const whatsappLink = `https://wa.me/${Mobile}?text=${encodeURIComponent(message)}`;
 
   const openPDF = () => {
@@ -58,7 +58,7 @@ function Hero({ toggleDarkMode, isDark }) {
       <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
 
       <div className="container mx-auto">
-        <div className="flex flex-col mt-10 md:justify-between md:flex-row pt-14 md:pt-0 md:mt-20">
+        <div className="flex flex-col mt-8 md:justify-between md:flex-row pt-14 md:pt-0 md:mt-20">
           {/* Left Section */}
           <div>
             <motion.div
@@ -67,7 +67,7 @@ function Hero({ toggleDarkMode, isDark }) {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-100 md:ml-20 mx-10 text-5xl md:text-6xl md:w-[400px] min-h-[90px]">
+              <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-100 md:ml-20 mx-5 text-5xl md:text-6xl md:w-[400px] min-h-[90px]">
                 <h3>Hello, I am...</h3>
                 <strong className="font-bold">
                   {displayText}
@@ -86,7 +86,7 @@ function Hero({ toggleDarkMode, isDark }) {
               initial={{ opacity: 0, y: 30 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mx-10 mt-8 md:ml-20 md:mt-6"
+              className="mx-5 mt-8 md:ml-20 md:mt-6"
             >
               <p className="text-xl text-black md:text-2xl dark:text-white">
                 <strong className="italic font-bold">Web Developer</strong> based in Bangladesh
@@ -127,7 +127,7 @@ function Hero({ toggleDarkMode, isDark }) {
                 className="flex gap-4 py-14"
               >
                 <a
-                  href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
+                  href="https://www.linkedin.com/in/mohammad-sijan-883205341"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Linkedin"

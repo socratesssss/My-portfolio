@@ -5,6 +5,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import NightlightIcon from "@mui/icons-material/Nightlight";
 import WbSunnyIcon from "@mui/icons-material/WbSunny";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import GitHubIcon from "@mui/icons-material/GitHub";
 function Nav({ toggleDarkMode, isDark }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
@@ -22,7 +23,7 @@ function Nav({ toggleDarkMode, isDark }) {
     }
   }, [mobileOpen]);
   const phone = "8801839528641"; // your phone number with country code
-  const message = "Hello! I found your website.";
+  const message = "Hello! I found you on your website.";
   const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(
     message
   )}`;
@@ -89,7 +90,7 @@ function Nav({ toggleDarkMode, isDark }) {
         <header>
           <img src="/logo2.png" className="w-[34px]" alt="" />
           <button
-            className="absolute top-4 right-4 z-50"
+            className="absolute z-50 top-4 right-4"
             onClick={handleDrawerToggle}
           >
             <CloseIcon sx={{ fontSize: 32, color: "white" }} />
@@ -101,7 +102,7 @@ function Nav({ toggleDarkMode, isDark }) {
           <ul className="flex flex-col gap-4">
             {navItem.map((text, index) => (
               <li key={index}>
-                <button className="text-white line-through text-sm cursor-pointer  border-white md:border-none hover:text-gray-400 transition">
+                <button className="text-sm text-white line-through transition border-white cursor-pointer md:border-none hover:text-gray-400">
                   {text}
                 </button>
               </li>
@@ -110,22 +111,22 @@ function Nav({ toggleDarkMode, isDark }) {
         </nav>
 
         {/* Footer Social Icons */}
-        <footer className="mt-auto pt-10 absolute bottom-6 flex gap-4">
+        <footer className="absolute flex gap-4 pt-10 mt-auto bottom-6">
           <a
-            href="https://www.linkedin.com/in/mohammad-sijan-883205341/"
+            href="https://www.linkedin.com/in/mohammad-sijan-883205341"
             target="_blank"
             rel="noreferrer"
             className="inline-block"
           >
             <LinkedInIcon sx={{ color: "white", fontSize: 30 }} />
           </a>
-          {/* <a
+          <a
             href="https://github.com/socratesssss"
             target="_blank"
             rel="noreferrer"
           >
             <GitHubIcon sx={{ color: "white", fontSize: 30 }} />
-          </a> */}
+          </a>
           <a
             href={whatsappLink}
             target="_blank"
