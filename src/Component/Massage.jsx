@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const fakeMessages = [
   { id: 1, sender: 'me', text: 'Hey! How are you doing?' },
@@ -11,7 +11,7 @@ const fakeMessages = [
 function MessageBox() {
   return (
     <div className="max-w-md mx-auto h-[500px] border rounded-lg shadow p-4 flex flex-col justify-between bg-white">
-      <div className="overflow-y-auto space-y-3 mb-4">
+      <div className="mb-4 space-y-3 overflow-y-auto">
         {fakeMessages.map((msg) => (
           <div
             key={msg.id}
@@ -37,9 +37,9 @@ function MessageBox() {
         <input
           type="text"
           placeholder="Type a message..."
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        <button className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
           Send
         </button>
       </div>

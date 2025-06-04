@@ -2,9 +2,16 @@ import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const reviews = [
+    {
+    name: "Elon Musk",
+    role: "Tesla  Chief Executive Officer",
+    review:
+      "Sijan brought our vision to life. His UI/UX understanding is exceptional. Highly recommend.",
+    image: "/elon.webp",
+  },
   {
     name: "Cristiano Ronaldo",
-    role: "CR7,Club=>Al-Nassr",
+    role: "Captain of Al-Nassr",
     review:
       "Sijan is an outstanding developer. He delivered everything ahead of schedule and with great attention to detail.",
     image: "/ronaldo.jpg",
@@ -16,13 +23,7 @@ const reviews = [
       "His work on our project was professional and efficient. Great communication and clean code.",
     image: "/Tony-Stark.webp",
   },
-  {
-    name: "Elon Musk",
-    role: "Tesla  Chief Executive Officer",
-    review:
-      "Sijan brought our vision to life. His UI/UX understanding is exceptional. Highly recommend.",
-    image: "/elon.webp",
-  },
+
  
 ];
 
@@ -41,7 +42,7 @@ function ReviewSection() {
   };
 
   return (
-    <section className="bg-gray-100 dark:bg-[#0B192C] py-16">
+    <section className="bg-gray-100 dark:bg-[#0B192C] py-16 ">
       <div className="container px-4 mx-auto">
         <h2 className="mb-12 text-3xl font-bold text-center text-gray-800 md:text-4xl dark:text-white">
           What Clients Say

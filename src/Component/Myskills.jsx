@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import SchoolIcon from "@mui/icons-material/School";
 
@@ -17,8 +17,8 @@ function Myskills() {
   ];
 
   return (
-    <section className="dark:bg-[#0f172a] bg-gray-50 py-10 container mx-auto transition-colors duration-500">
-      <div className="mx-4 md:mx-20">
+    <section className="dark:bg-[#0f172a] bg-gray-50 py-10  transition-colors duration-500">
+      <div className="container px-4 mx-auto md:px-10">
         <div className="flex items-center justify-center py-3">
           <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-800 md:text-3xl dark:text-white">
             My Skills <SchoolIcon sx={{ marginBottom: "4px" }} />

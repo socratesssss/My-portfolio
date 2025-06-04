@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import Nav from "./MobileNav";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
@@ -49,44 +48,17 @@ function Hero({ toggleDarkMode, isDark }) {
     setStarted(true);
   }, []);
 
-  // Structured Data for SEO
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohammad Sijan",
-    "url": "https://portfolio-sijan.netlify.app/",
-    "sameAs": [
-      "https://www.linkedin.com/in/mohammad-sijan-883205341/",
-      "https://github.com/socratesssss",
-      "https://wa.me/8801839528641"
-    ],
-    "email": "mailto:mohammadsijan381@gmail.com",
-    "telephone": "+8801839528641"
-  };
+
 
   return (
     <section className="bg-white scrollbar-hidden dark:bg-[#0B192C] w-full">
-      <Helmet>
-        <title>Mohammad Sijan | Frontend Developer Portfolio</title>
-        <meta
-          name="description"
-          content="Mohammad Sijan is a skilled frontend developer from Bangladesh. Explore his projects, skills, and contact information."
-        />
-        <meta property="og:title" content="Mohammad Sijan | Frontend Developer" />
-        <meta property="og:description" content="Explore the portfolio of Mohammad Sijan, a frontend developer from Bangladesh." />
-        <meta property="og:image" content="https://portfolio-sijan.netlify.app/sijan2.jpg" />
-        <meta property="og:url" content="https://portfolio-sijan.netlify.app/" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
-        </script>
-      </Helmet>
+   
 
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
 
       <div className="container mx-auto">
-        <div className="flex flex-col mt-10 md:flex-row pt-14 md:pt-0 md:mt-20">
+        <div className="flex flex-col mt-10 md:justify-between md:flex-row pt-14 md:pt-0 md:mt-20">
           {/* Left Section */}
           <div>
             <motion.div
@@ -204,7 +176,7 @@ function Hero({ toggleDarkMode, isDark }) {
           >
             <img
               src="/sijan2.jpg"
-              className="rounded-full mx-auto sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full"
+              className="rounded-full  mx-auto   sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full"
               alt="Mohammad Sijan - Frontend Developer from Bangladesh"
             />
           </motion.div>
