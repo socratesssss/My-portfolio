@@ -1,45 +1,38 @@
+import React from "react";
+import { motion } from "framer-motion";
 
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
-
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
-
-export default function ActionAreaCard({image,name,link,des}) {
-
+const ActionCard = ({ image, name, link, des }) => {
   return (
-   <div className='  hover:shadow-md dark:hover:shadow-[#00BDDF]'>
-     <Card sx={{ maxWidth: 405 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-         
-          className='md:h-52 h-46'
-          image={image}
-          alt="green iguana"
-        />
-        <CardContent className='border-b border-gray-200 dark:bg-gray-800 dark:border-gray-600'>
-          <Typography gutterBottom variant="h5" className='dark:text-white' component="div">
-          {name}
-          </Typography>
-          <Typography variant="body2" className='line-clamp-2 dark:text-white'>
-        
-         {des ? `${des}`: ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi, voluptatum!'}
-           
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      
+    <motion.a
+      href={link || "#"}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className="relative block rounded-xl h-50 overflow-hidden shadow-md hover:shadow-xl dark:hover:shadow-cyan-500/30 transition-shadow duration-300 group max-w-sm mx-auto"
+    >
+      {/* Background Image */}
+      <img
+        src={image}
+        alt={name || "Project"}
+        className="w-full h-50 object-cover transform group-hover:scale-110 transition-transform duration-500"
+      />
 
-      <CardActions className='dark:bg-gray-800'>
-        <Button size="small"   target="_blank" sx={{color:'#00BDDF'}}   component="a" href={link}>Live Demo</Button>
-      </CardActions>
-   
-     
-    </Card>
-   </div>
+      {/* Overlay Content */}
+      <div className="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-4 space-y-3">
+        <h3 className="text-white text-xl font-bold">{name || "Project Title"}</h3>
+        <p className="text-gray-200 text-sm line-clamp-3">
+          {des ||
+            "This is a professional web design created with modern tools and beautiful interaction."}
+        </p>
+        <button className="mt-2 bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors duration-300">
+          View Website
+        </button>
+      </div>
+    </motion.a>
   );
-}
+};
+
+export default ActionCard;

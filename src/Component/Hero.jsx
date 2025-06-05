@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import Nav from "./MobileNav";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 import { Email } from "@mui/icons-material";
+import { MdOutlineEmail } from "react-icons/md";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import WebsiteShow from "./WebsiteShow";
 import Myskills from "./Myskills";
@@ -15,6 +15,8 @@ import Footer from "./Footer";
 import ReviewSection from "./Review";
 import SendEmail from "./Email";
 import Ai from "./Ai";
+import AboutSection from "./About";
+import EmailIcon from '@mui/icons-material/Email';
 
 function Hero({ toggleDarkMode, isDark }) {
   const Mobile = "8801839528641";
@@ -57,19 +59,20 @@ function Hero({ toggleDarkMode, isDark }) {
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
 
-      <div className="container mx-auto">
-        <div className="flex flex-col mt-8 md:justify-between md:flex-row pt-14 md:pt-0 md:mt-20">
+  <div className="dark:bg-[url('bg2.jpg')] bg-fixed  bg-cover bg-center bg-no-repeat">
+        <div className="container mx-auto">
+        <div className="flex flex-col pt-20 md:justify-between md:flex-row  md:pt-20">
           {/* Left Section */}
-          <div>
+          <div className="">
             <motion.div
               whileInView={{ opacity: 1, x: 0 }}
               initial={{ opacity: 0, x: -50 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7 }}
             >
-              <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-100 md:ml-20 mx-5 text-5xl md:text-6xl md:w-[400px] min-h-[90px]">
+              <div className="z-10 relative md:inline-block text-gray-950 dark:text-gray-200 md:ml-20 mx-5 text-5xl md:text-6xl md:w-[400px] min-h-[90px]">
                 <h3>Hello, I am...</h3>
-                <strong className="font-bold">
+      <strong className="font-bold ">
                   {displayText}
                   <span className="animate-pulse">.</span>
                 </strong>
@@ -89,7 +92,7 @@ function Hero({ toggleDarkMode, isDark }) {
               className="mx-5 mt-8 md:ml-20 md:mt-6"
             >
               <p className="text-xl text-black md:text-2xl dark:text-white">
-                <strong className="italic font-bold">Web Developer</strong> based in Bangladesh
+                <strong className="italic font-bold  ">Web Developer</strong> based in Bangladesh
               </p>
 
               <motion.button
@@ -111,11 +114,11 @@ function Hero({ toggleDarkMode, isDark }) {
                 className="flex flex-col md:flex-row gap-4 md:w-[120%] justify-between mt-8 md:mt-16"
               >
                 <a href={`tel:${Mobile}`} className="font-semibold text-black dark:text-white">
-                  <LocalPhoneIcon className="p-1 bg-gray-300 rounded-full" sx={{ color: "#00BDDF" }} />
+                  <LocalPhoneIcon className="p-1 bg-[#00cfef] rounded-full" sx={{ color: "white" }} />
                   +{Mobile}
                 </a>
                 <a href={`mailto:${email}`} className="font-semibold text-black dark:text-white">
-                  <Email className="p-1 bg-gray-300 rounded-full" sx={{ color: "#00BDDF" }} /> {email}
+                  <Email className="p-1 bg-[#00cfef] rounded-full" sx={{ color: "white" }} /> {email}
                 </a>
               </motion.div>
 
@@ -160,7 +163,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   aria-label="Email"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
                 >
-                  <AlternateEmailIcon sx={{ fontSize: 30 }} className="text-black dark:text-white" />
+                  <MdOutlineEmail sx={{ fontSize: 30 }} className="text-[#CB0001] size-7 dark:text-white" />
                 </a>
               </motion.div>
             </motion.div>
@@ -172,7 +175,7 @@ function Hero({ toggleDarkMode, isDark }) {
             initial={{ opacity: 0, y: 50 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="md:-mt-10"
+            className="md:-mt-10 pb-14 sm:pb-0"
           >
             <img
               src="/sijan2.jpg"
@@ -182,11 +185,14 @@ function Hero({ toggleDarkMode, isDark }) {
           </motion.div>
         </div>
       </div>
+  </div>
+      <AboutSection/>
 
       <Myskills />
       <WebsiteShow />
+       <ReviewSection />
       <FaqSection />
-      <ReviewSection />
+     
       <SendEmail />
       <Footer />
     </section>

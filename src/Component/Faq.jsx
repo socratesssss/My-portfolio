@@ -56,9 +56,9 @@ function FaqSection() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white container mx-auto dark:bg-[#1e293b] py-10 px-4 md:px-20"
+      className="bg-gray-100 container mx-auto dark:bg-gray-900 py-10 px-4 md:px-20"
     >
-      <h2 className="mb-6 text-3xl font-bold text-center text-gray-800 dark:text-white">
+      <h2 className="mb-6 text-3xl font-bold text-center text-[#00cfef]">
         Frequently Asked Questions
       </h2>
 

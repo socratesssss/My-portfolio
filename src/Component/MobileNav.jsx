@@ -32,7 +32,7 @@ function Nav({ toggleDarkMode, isDark }) {
       {/* Top Navbar with transition */}
       <div
         className={`
-          fixed top-0 left-0 w-full z-50 md:hidden bg-white dark:bg-[#122239] p-2 md:px-4 flex justify-between items-center
+          fixed top-0 left-0 w-full z-50 md:hidden bg-white dark:bg-[#122239] opacity-50 p-2 md:px-4 flex justify-between items-center
           transition-all duration-300 ease-in-out drop-shadow-sm
           ${
             mobileOpen

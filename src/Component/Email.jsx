@@ -1,7 +1,9 @@
-// components/SendEmail.jsx
 import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
 import { motion, useInView } from "framer-motion";
+import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const inputAnimation = {
   hidden: { opacity: 0, y: 30 },
@@ -13,124 +15,177 @@ const inputAnimation = {
 };
 
 const SendEmail = () => {
-  const form = useRef(null);
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    if (!form.current) return;
-
-    emailjs
-      .sendForm(
-        "your_service_id",     // Replace with your EmailJS service ID
-        "your_template_id",    // Replace with your EmailJS template ID
-        form.current,
-        "your_user_id"         // Replace with your EmailJS public key
-      )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          form.current.reset();
-        },
-        (error) => {
-          alert("Failed to send the message. Please try again.");
-          console.error(error);
-        }
-      );
-  };
-
   return (
-    <div ref={containerRef} className="max-w-2xl mx-auto px-4 py-10">
-      <h2 className="text-3xl font-bold mb-6 text-center dark:text-white">Send Us a Message</h2>
-      <form
-        ref={form}
-        onSubmit={sendEmail}
-        className="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md"
+    <section
+      ref={containerRef}
+      className=" py-6  md:py-16  "
+      id="contact"
+    >
+          <h2 className="text-5xl font-bold py-8 text-[#00cfef] text-center" >Get in touch</h2>
+
+  <div className="md:mx-10 mx-4 md:flex  md:items-start gap-10">
+        {/* Left Contact Info */}
+      <motion.div
+        className="md:w-1/2 mb-10 md:mb-0 flex flex-col md:items-start items-center"
+        initial={{ opacity: 0, x: -40 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        {[0, 1, 2, 3, 4].map((i) => {
-          const commonProps = {
-            className:
-              "w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white p-3 rounded-md",
-            required: i !== 2,
-          };
+        <h2 className="text-3xl font-bold mb-4 text-[#00cfef]">
+          Contact Information
+        </h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-6 text-center md:text-start text-lg">
+          Feel free to reach out to me for any project inquiries or
+          collaborations. I'm always excited to discuss new ideas!
+        </p>
 
-          if (i === 0)
-            return (
-              <motion.input
-                key={i}
-                custom={i}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                variants={inputAnimation}
-                type="text"
-                name="user_name"
-                placeholder="Your Name"
-                {...commonProps}
-              />
-            );
-          if (i === 1)
-            return (
-              <motion.input
-                key={i}
-                custom={i}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                variants={inputAnimation}
-                type="email"
-                name="user_email"
-                placeholder="Your Email"
-                {...commonProps}
-              />
-            );
-          if (i === 2)
-            return (
-              <motion.input
-                key={i}
-                custom={i}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                variants={inputAnimation}
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                {...commonProps}
-              />
-            );
-          if (i === 3)
-            return (
-              <motion.textarea
-                key={i}
-                custom={i}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                variants={inputAnimation}
-                name="message"
-                rows="5"
-                placeholder="Your Message"
-                {...commonProps}
-              />
-            );
-          if (i === 4)
-            return (
-              <motion.button
-                key={i}
-                custom={i}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                variants={inputAnimation}
-                type="submit"
-                className="text-white w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg  px-5 py-2.5 text-center me-2 mb-2"
-              >
-                Send Email
-              </motion.button>
-            );
+        <ul className="space-y-4 text-[#00cfef] text-center md:text-start dark:text-gray-300 text-base">
+          <li>
+           <EmailIcon/>{" "}
+            <a
+              href="mailto:mohammadsijan381@gmail.com"
+              className="text-gray-600 dark:text-gray-300 hover:underline"
+            >
+             mohammadsijan381@gmail.com
+            </a>
+          </li>
+      
+            <li className="text-gray-600 dark:text-gray-300">
+            <LocalPhoneIcon  />  <a href="#"
+         className="text-gray-600 dark:text-gray-300 hover:underline"
+         >
+             (880) 1839528641
+              </a>
+          </li>
+       
+          <li>
+            <LinkedInIcon/>{" "}
+            <a
+              href="https://www.linkedin.com/in/mohammad-sijan-883205341"
+              target="_blank"
+              className="text-gray-600 dark:text-gray-300 hover:underline"
+              rel="noopener noreferrer"
+            >
+              mohammad-sijan
+            </a>
+          </li>
+          <li>
+           <GitHubIcon/>{" "}
+            <a
+              href="https://github.com/socratesssss"
+              target="_blank"
+              className="text-gray-600 dark:text-gray-300 hover:underline"
+              rel="noopener noreferrer"
+            >
+              socratesssss
+            </a>
+          </li>
+        </ul>
+      </motion.div>
 
-          return null;
-        })}
-      </form>
-    </div>
+      {/* Right Contact Form */}
+      <motion.div
+        className="md:w-1/2"
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <h2 className="text-3xl font-bold mb-6 text-[#00cfef] text-center md:text-left">
+          Send me a Message
+        </h2>
+        <form
+          action="https://formspree.io/f/mwpbpakq"
+          method="POST"
+          className="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md"
+        >
+          {[0, 1, 2, 3, 4].map((i) => {
+            const commonProps = {
+              className:
+                "w-full border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white p-3 rounded-md",
+              required: i !== 2,
+            };
+
+            if (i === 0)
+              return (
+                <motion.input
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={inputAnimation}
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  {...commonProps}
+                />
+              );
+            if (i === 1)
+              return (
+                <motion.input
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={inputAnimation}
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  {...commonProps}
+                />
+              );
+         
+            if (i === 2)
+              return (
+                <motion.input
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={inputAnimation}
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  {...commonProps}
+                />
+              );
+            if (i === 3)
+              return (
+                <motion.textarea
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={inputAnimation}
+                  name="message"
+                  rows="5"
+                  placeholder="Your Message"
+                  {...commonProps}
+                />
+              );
+            if (i === 4)
+              return (
+                <motion.button
+                  key={i}
+                  custom={i}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={inputAnimation}
+                  type="submit"
+                  className="text-white w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg px-5 py-2.5 text-center"
+                >
+                  Send Message
+                </motion.button>
+              );
+
+            return null;
+          })}
+        </form>
+      </motion.div>
+  </div>
+    </section>
   );
 };
 

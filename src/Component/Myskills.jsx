@@ -1,57 +1,57 @@
-
+import React from "react";
 import { motion } from "framer-motion";
-import SchoolIcon from "@mui/icons-material/School";
 
-function Myskills() {
-  const skills = [
-    { src: "/html.png", name: "HTML" },
-    { src: "/css.png", name: "CSS" },
-    { src: "/javascript.png", name: "JAVASCRIPT" },
-    { src: "/bootsrap.png", name: "BOOTSTRAP" },
-    { src: "/tailwind.png", name: "TAILWIND" },
-    { src: "/reactjs.png", name: "REACT" },
-    { src: "/typescript.png", name: "TYPESCRIPT" },
-    { src: "/nextjs.png", name: "NEXTJS" },
-    { src: "/frammer.png", name: "FRAMER" },
-    { src: "/mui.jpg", name: "MUI" },
-  ];
+const skills = [
+  { name: "HTML", level: 95 },
+  { name: "JavaScript", level: 70 },
+  { name: "React", level: 80 },
+  { name: "Tailwind CSS", level: 90 },
+  { name: "Next.js", level: 40 },
+  {name:'Node js', level: 50}
+];
 
+const barVariants = {
+  initial: { width: 0 },
+  animate: (level) => ({
+    width: `${level}%`,
+    transition: { duration: 1, ease: "easeOut" },
+  }),
+};
+
+const Myskills = () => {
   return (
-    <section className="dark:bg-[#0f172a] bg-gray-50 py-10  transition-colors duration-500">
-      <div className="container px-4 mx-auto md:px-10">
-        <div className="flex items-center justify-center py-3">
-          <h2 className="flex items-center gap-2 text-2xl font-bold text-gray-800 md:text-3xl dark:text-white">
-            My Skills <SchoolIcon sx={{ marginBottom: "4px" }} />
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-2 gap-8 mt-6 sm:grid-cols-3 md:grid-cols-5">
-          {skills.map((info, i) => (
-            <motion.div
-              key={i}
-              className="flex flex-col items-center justify-center p-4 bg-white dark:bg-[#1e293b] rounded-lg shadow hover:shadow-md dark:hover:shadow-[#00BDDF] transition duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                duration: 0.4,
-                delay: i * 0.08,
-              }}
-            >
-              <img
-                src={info.src}
-                alt={info.name}
-                className="object-contain h-10 md:h-16"
-              />
-              <p className="mt-2 text-sm font-medium text-gray-700 dark:text-gray-300">
-                {info.name}
-              </p>
-            </motion.div>
+    <section id="skills" className="py-16 bg-white dark:bg-gray-900  dark:bg-[url('bg1.png')]  md:dark:bg-[url('bg1.png')] bg-fixed bg-cover bg-center bg-no-repeat">
+      <div className=" mx-auto px-6 sm:px-12">
+        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">
+          My Skills
+        </h2>
+        <div className="space-y-6 md:grid grid-cols-3 gap-10">
+          {skills.map((skill, index) => (
+            <div key={index}>
+              <div className="flex justify-between mb-1">
+                <span className="text-lg font-medium text-gray-700 dark:text-white">
+                  {skill.name}
+                </span>
+                <span className="text-sm font-medium text-gray-500 dark:text-gray-300">
+                  {skill.level}%
+                </span>
+              </div>
+              <div className="w-full h-4 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-cyan-500 rounded-full"
+                  custom={skill.level}
+                  variants={barVariants}
+                  initial="initial"
+                  whileInView="animate"
+                  viewport={{ once: true }}
+                />
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Myskills;

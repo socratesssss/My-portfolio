@@ -65,9 +65,9 @@ const WebsiteShow = () => {
   }, []);
 
   return (
-    <section className="bg-gray-50 dark:bg-[#0B192C] py-16">
+    <section className="bg-gray-100 dark:bg-[#0B192C] py-16  ">
       <div className="container px-4 mx-auto">
-        <h2 className="mb-12 text-3xl font-bold text-center text-gray-800 md:text-4xl dark:text-white">
+        <h2 className="pb-12 text-3xl font-bold text-center text-[#00cfef] md:text-4xl ">
           Featured Projects
         </h2>
 
@@ -92,10 +92,10 @@ const WebsiteShow = () => {
         </div>
 
         {/* Mobile Carousel */}
-        <div className="-mx-4 md:hidden">
+        <div className=" md:hidden">
           <div
             ref={scrollRef}
-            className="flex gap-6 px-4 pb-4 overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
+            className="flex gap-6 px-4 pb-4 overflow-x-auto overflow-y-hidden  scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
           >
          {websites.map((site, index) => (
   <motion.div
