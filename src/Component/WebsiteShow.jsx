@@ -51,7 +51,7 @@ const WebsiteShow = () => {
   const handleScroll = () => {
     if (!scrollRef.current) return;
     const scrollLeft = scrollRef.current.scrollLeft;
-    const childWidth = scrollRef.current.firstChild.offsetWidth + 16; // + gap
+    const childWidth = scrollRef.current.firstChild.offsetWidth + 10; // + gap
     const index = Math.round(scrollLeft / childWidth);
     setActiveIndex(index);
   };
@@ -79,7 +79,7 @@ const WebsiteShow = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
             >
               <ActionAreaCard
                 name={site.name}
@@ -95,7 +95,7 @@ const WebsiteShow = () => {
         <div className=" md:hidden">
           <div
             ref={scrollRef}
-            className="flex gap-6 px-4 pb-4 overflow-x-auto overflow-y-hidden  scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
+            className="flex gap-6 px-4 pb-4 overflow-x-auto overflow-y-hidden scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
           >
          {websites.map((site, index) => (
   <motion.div
@@ -105,7 +105,7 @@ const WebsiteShow = () => {
       initial: { opacity: 0, y: 20 },
       whileInView: { opacity: 1, y: 0 },
       viewport: { once: true },
-      transition: { duration: 0.5, delay: 0.2 },
+      transition: { duration: 0.1, delay: 0.1 },
     })}
   >
     <ActionAreaCard
