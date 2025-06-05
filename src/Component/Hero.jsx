@@ -59,7 +59,7 @@ function Hero({ toggleDarkMode, isDark }) {
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
 
-  <div className="dark:bg-[url('bg2.jpg')] bg-fixed  bg-cover bg-center bg-no-repeat">
+  <div className="dark:bg-[url('./bg2.jpg')] bg-fixed  bg-cover bg-center bg-no-repeat">
         <div className="container mx-auto">
         <div className="flex flex-col pt-20 md:justify-between md:flex-row  md:pt-20">
           {/* Left Section */}
