@@ -58,7 +58,7 @@ const Ai = ({ isDark }) => {
       // Auto-hide notification after 5s
       setTimeout(() => {
         setShowNotification(false);
-      }, 10000);
+      }, 5000);
     }, 5000);
 
     return () => clearTimeout(timeout);

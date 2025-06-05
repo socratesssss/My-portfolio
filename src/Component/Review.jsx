@@ -42,7 +42,7 @@ function ReviewSection() {
   };
 
   return (
-    <section className="bg-white dark:bg-[#0B192C] py-16  ">
+    <section className="bg-white py-16  dark:bg-[url('/bg1.png')]  bg-cover bg-center bg-no-repeat">
       <div className="container px-4 mx-auto">
         <h2 className="mb-12 text-3xl font-bold text-center  md:text-4xl text-[#00cfef]">
           What Clients Say

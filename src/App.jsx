@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from './Layout';
 import Hero from './Component/Hero';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MessageBox from './Component/Massage';
+
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -40,7 +40,7 @@ function App() {
             index
             element={<Hero isDark={isDark} toggleDarkMode={toggleDarkMode} />}
           />
-          <Route path="/massage" element={<MessageBox />} />
+       
         </Route>
       </Routes>
     </Router>

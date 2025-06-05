@@ -21,15 +21,15 @@ const SendEmail = () => {
   return (
     <section
       ref={containerRef}
-      className=" py-6  md:py-16  "
+      className=" py-6  md:py-16  dark:bg-[url('/bg2.jpg')]   bg-cover bg-bottom  bg-no-repeat"
       id="contact"
     >
-          <h2 className="text-5xl font-bold py-8 text-[#00cfef] text-center" >Get in touch</h2>
+          <h2 className="text-5xl hidden sm:block  font-bold py-8 text-[#00cfec] text-center  " ><span className=" border-white border-b-2">Get in touch</span></h2>
 
-  <div className="md:mx-10 mx-4 md:flex  md:items-start gap-10">
+  <div className="md:mx-10 mx-4 md:flex   md:items-start gap-10">
         {/* Left Contact Info */}
       <motion.div
-        className="md:w-1/2 mb-10 md:mb-0 flex flex-col md:items-start items-center"
+        className="md:w-1/2 mb-10 md:mb-0 flex flex-col md:items-start items-center "
         initial={{ opacity: 0, x: -40 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -88,7 +88,7 @@ const SendEmail = () => {
 
       {/* Right Contact Form */}
       <motion.div
-        className="md:w-1/2"
+        className="md:w-1/2  "
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -99,7 +99,7 @@ const SendEmail = () => {
         <form
           action="https://formspree.io/f/mwpbpakq"
           method="POST"
-          className="space-y-4 bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md"
+          className="space-y-4 bg-white dark:bg-gray-900/70 p-6 rounded-lg shadow-md"
         >
           {[0, 1, 2, 3, 4].map((i) => {
             const commonProps = {
