@@ -14,32 +14,32 @@ const websites = [
   {
     id: 6,
     name: "DISASTERS",
-    img: "/website1.png",
+    img: "/website1.jpg",
     link: "https://disaster-website.netlify.app/",
     des:"The website appears to be a basic template for a disaster information platform, built using Vite and React. It seems to serve as a foundational structure for developers or organizations aiming to create a disaster response or emergency information site."
   },
   {
     id: 2,
     name: "governinDocs",
-    img: "/website2.png",
+    img: "/website2.jpg",
     link: "https://ai-govs-docs.netlify.app/",
   },
   {
     id: 3,
     name: "thicker ai",
-    img: "/website3.png",
+    img: "/website3.jpg",
     link: "https://tailwind-project-123.netlify.app/",
   },
   {
     id: 4,
     name: "wizia",
-    img: "/wesite4.png",
+    img: "/wesite4.jpg",
     link: "https://wizia222.netlify.app/",
   },
   {
     id: 5,
     name: "Degic",
-    img: "/website5.png",
+    img: "/website5.jpg",
     link: "https://react-app-1345432.netlify.app/",
   },
 ];
@@ -105,7 +105,7 @@ const WebsiteShow = () => {
       initial: { opacity: 0, y: 20 },
       whileInView: { opacity: 1, y: 0 },
       viewport: { once: true },
-      transition: { duration: 0.1, delay: 0.1 },
+      transition: { duration: 0.5, delay: 0 },
     })}
   >
     <ActionAreaCard

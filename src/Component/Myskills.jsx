@@ -14,18 +14,18 @@ const barVariants = {
   initial: { width: 0 },
   animate: (level) => ({
     width: `${level}%`,
-    transition: { duration: 1, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   }),
 };
 
 const Myskills = () => {
-  return (
-    <section id="skills" className="py-16 bg-white dark:bg-gray-900  dark:bg-[url('/bg3.jpg')]  md:dark:bg-[url('/bg3.jpg')] bg-cover bg-center bg-no-repeat">
-      <div className=" mx-auto px-6 sm:px-12">
-        <h2 className="text-3xl font-bold text-center text-gray-800 dark:text-white mb-10">
+  return ( 
+    <section id="skills" className="py-16 bg-white dark:bg-gray-900  dark:bg-[url('/bg3.jpg')] bg-fixed  md:dark:bg-[url('/bg3.jpg')] bg-cover bg-center bg-no-repeat">
+      <div className="px-6 mx-auto sm:px-12">
+        <h2 className="mb-10 text-3xl font-bold text-center text-[#00cfec]">
           My Skills
         </h2>
-        <div className="space-y-6 md:grid grid-cols-3 gap-10">
+        <div className="grid-cols-3 gap-10 space-y-6 md:grid">
           {skills.map((skill, index) => (
             <div key={index}>
               <div className="flex justify-between mb-1">
@@ -36,9 +36,9 @@ const Myskills = () => {
                   {skill.level}%
                 </span>
               </div>
-              <div className="w-full h-4 bg-gray-300 dark:bg-gray-700 rounded-full overflow-hidden">
+              <div className="w-full h-4 overflow-hidden bg-gray-300 rounded-full dark:bg-gray-700">
                 <motion.div
-                  className="h-full bg-cyan-500 rounded-full"
+                  className="h-full rounded-full bg-linear-to-r from-cyan-500 to-cyan-800"
                   custom={skill.level}
                   variants={barVariants}
                   initial="initial"

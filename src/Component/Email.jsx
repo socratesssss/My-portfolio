@@ -21,23 +21,23 @@ const SendEmail = () => {
   return (
     <section
       ref={containerRef}
-      className=" py-6  md:py-16  dark:bg-[url('/bg2.jpg')]   bg-cover bg-bottom  bg-no-repeat"
+      className=" py-6  md:py-16  dark:bg-[url('/bg2.jpg')] bg-fixed   bg-cover bg-bottom  bg-no-repeat"
       id="contact"
     >
-          <h2 className="text-5xl hidden sm:block  font-bold py-8 text-[#00cfec] text-center  " ><span className=" border-white border-b-2">Get in touch</span></h2>
+          <h2 className="text-5xl hidden sm:block  font-bold py-8 text-[#00cfec] text-center  " ><span className="border-b-2 border-white ">Get in touch</span></h2>
 
-  <div className="md:mx-10 mx-4 md:flex   md:items-start gap-10">
+  <div className="gap-10 mx-4 md:mx-10 md:flex md:items-start">
         {/* Left Contact Info */}
       <motion.div
-        className="md:w-1/2 mb-10 md:mb-0 flex flex-col md:items-start items-center "
+        className="flex flex-col items-center mb-10 md:w-1/2 md:mb-0 md:items-start "
         initial={{ opacity: 0, x: -40 }}
         animate={isInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-3xl font-bold mb-4 text-[#00cfef]">
           Contact Information
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-6 text-center md:text-start text-lg">
+        <p className="mb-6 text-lg text-center text-gray-600 dark:text-gray-300 md:text-start">
           Feel free to reach out to me for any project inquiries or
           collaborations. I'm always excited to discuss new ideas!
         </p>
@@ -53,7 +53,7 @@ const SendEmail = () => {
             </a>
           </li>
       
-            <li className="text-gray-600 dark:text-gray-300">
+            <li className="">
             <LocalPhoneIcon  />  <a href="#"
          className="text-gray-600 dark:text-gray-300 hover:underline"
          >
@@ -88,10 +88,10 @@ const SendEmail = () => {
 
       {/* Right Contact Form */}
       <motion.div
-        className="md:w-1/2  "
+        className="md:w-1/2 "
         initial={{ opacity: 0, y: 40 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <h2 className="text-3xl font-bold mb-6 text-[#00cfef] text-center md:text-left">
           Send me a Message
@@ -99,7 +99,7 @@ const SendEmail = () => {
         <form
           action="https://formspree.io/f/mwpbpakq"
           method="POST"
-          className="space-y-4 bg-white dark:bg-gray-900/70 p-6 rounded-lg shadow-md"
+          className="p-6 space-y-4 bg-white rounded-lg shadow-md dark:bg-gray-900/70"
         >
           {[0, 1, 2, 3, 4].map((i) => {
             const commonProps = {

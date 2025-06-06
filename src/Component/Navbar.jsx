@@ -24,7 +24,7 @@ function Navbar({toggleDarkMode,isDark}) {
           <header className="flex justify-between w-full ">
 
             <img src="/logo2.png" className="w-[35px]" alt="" />
-            <button onClick={toggleDarkMode}>
+            <button onClick={toggleDarkMode}  aria-label="Dark-Sunny">
               {isDark?  <WbSunnyIcon sx={{ color: "white", fontSize: 30 }}/>:
                <DarkModeIcon  sx={{ color: "white", fontSize: 30 }} />
              
@@ -39,7 +39,7 @@ function Navbar({toggleDarkMode,isDark}) {
             <ul className="flex flex-col gap-4">
               {navItem.map((text, index) => (
                 <li key={index}>
-                  <button className="text-sm transition border-b border-white cursor-pointer md:border-none hover:text-gray-400">
+                  <button  aria-label={text} className="text-sm transition border-b border-white cursor-pointer md:border-none hover:text-gray-400">
                     <del>{text}</del>
                   </button>
                 </li>
@@ -54,6 +54,7 @@ function Navbar({toggleDarkMode,isDark}) {
               target="_blank"
               rel="noreferrer"
               className="inline-block"
+                aria-label="Visit my LinkedIn"
             >
               <LinkedInIcon sx={{ color: "white", fontSize: 30 }} />
             </a>
@@ -62,6 +63,7 @@ function Navbar({toggleDarkMode,isDark}) {
               href="https://github.com/socratesssss"
               target="_blank"
               rel="noreferrer"
+                aria-label="Visit my GitHub"
             >
               <GitHubIcon sx={{ color: "white", fontSize: 30 }} />
             </a>
@@ -69,6 +71,7 @@ function Navbar({toggleDarkMode,isDark}) {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
+                aria-label="My WhatsApp"
            
             >
               <WhatsAppIcon sx={{ fontSize: 30, color: "white" }} />

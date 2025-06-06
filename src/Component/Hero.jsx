@@ -57,11 +57,11 @@ function Hero({ toggleDarkMode, isDark }) {
    
 
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
-      <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} />
+      {/* <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} /> */}
 
   <div className="dark:bg-[url('/bg4.jpg')] bg-fixed   bg-cover bg-center bg-no-repeat">
         <div className="container mx-auto">
-        <div className="flex flex-col pt-20 md:justify-between md:flex-row  md:pt-20">
+        <div className="flex flex-col pt-20 md:justify-between md:flex-row md:pt-20">
           {/* Left Section */}
           <div className="">
             <motion.div
@@ -92,7 +92,7 @@ function Hero({ toggleDarkMode, isDark }) {
               className="mx-5 mt-8 md:ml-20 md:mt-6"
             >
               <p className="text-xl text-black md:text-2xl dark:text-white">
-                <strong className="italic font-bold  ">Web Developer</strong> based in Bangladesh
+                <strong className="italic font-bold ">Web Developer</strong> based in Bangladesh
               </p>
 
               <motion.button
@@ -113,11 +113,11 @@ function Hero({ toggleDarkMode, isDark }) {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="flex flex-col md:flex-row gap-4 md:w-[120%] justify-between mt-8 md:mt-16"
               >
-                <a href={`tel:${Mobile}`} className="font-semibold text-black dark:text-white">
+                <a href={`tel:${Mobile}`} className="font-semibold text-black dark:text-white"   aria-label="My Number">
                   <LocalPhoneIcon className="p-1 bg-[#00cfef] rounded-full" sx={{ color: "white" }} />
                   +{Mobile}
                 </a>
-                <a href={`mailto:${email}`} className="font-semibold text-black dark:text-white">
+                <a href={`mailto:${email}`} className="font-semibold text-black dark:text-white"   aria-label="My Email">
                   <Email className="p-1 bg-[#00cfef] rounded-full" sx={{ color: "white" }} /> {email}
                 </a>
               </motion.div>
@@ -135,6 +135,7 @@ function Hero({ toggleDarkMode, isDark }) {
                   rel="noreferrer"
                   aria-label="Linkedin"
                   className="inline-block border-b border-[#00BDDF] dark:border-white"
+                   
                 >
                   <LinkedInIcon className="text-[#1469C9]" sx={{ fontSize: 30 }} />
                 </a>
@@ -174,7 +175,7 @@ function Hero({ toggleDarkMode, isDark }) {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 50 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0 }}
             className="md:-mt-10 pb-14 sm:pb-0"
           >
             <img

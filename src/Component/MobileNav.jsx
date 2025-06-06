@@ -41,7 +41,7 @@ function Nav({ toggleDarkMode, isDark }) {
           }
         `}
       >
-        <button onClick={toggleDarkMode}>
+        <button onClick={toggleDarkMode}  aria-label="Sunny-mode">
           {isDark ? (
             <WbSunnyIcon
               className="text-white"
@@ -52,6 +52,7 @@ function Nav({ toggleDarkMode, isDark }) {
           ) : (
             <NightlightIcon
               className="text-black"
+               aria-label="Dark-icon"
               sx={{
                 fontSize: 28,
               }}
@@ -61,7 +62,7 @@ function Nav({ toggleDarkMode, isDark }) {
 
         {!mobileOpen && (
           <div className="flex gap-2">
-            <button className="md:hidden" onClick={handleDrawerToggle}>
+            <button className="md:hidden"  aria-label="Menu" onClick={handleDrawerToggle}>
               <MenuIcon
                 className="text-black dark:text-white"
                 sx={{ fontSize: 32 }}
@@ -93,7 +94,9 @@ function Nav({ toggleDarkMode, isDark }) {
             className="absolute z-50 top-4 right-4"
             onClick={handleDrawerToggle}
           >
-            <CloseIcon sx={{ fontSize: 32, color: "white" }} />
+            <CloseIcon sx={{ fontSize: 32, color: "white" }}
+            
+ aria-label="Close"             />
           </button>
         </header>
 
@@ -117,6 +120,7 @@ function Nav({ toggleDarkMode, isDark }) {
             target="_blank"
             rel="noreferrer"
             className="inline-block"
+              aria-label="Visit my LInkedIn"
           >
             <LinkedInIcon sx={{ color: "white", fontSize: 30 }} />
           </a>
@@ -124,6 +128,7 @@ function Nav({ toggleDarkMode, isDark }) {
             href="https://github.com/socratesssss"
             target="_blank"
             rel="noreferrer"
+              aria-label="Visit my GitHub"
           >
             <GitHubIcon sx={{ color: "white", fontSize: 30 }} />
           </a>
@@ -132,6 +137,7 @@ function Nav({ toggleDarkMode, isDark }) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block "
+              aria-label="My WhatssApp"
           >
             <WhatsAppIcon sx={{ fontSize: 30, color: "white" }} />
           </a>
