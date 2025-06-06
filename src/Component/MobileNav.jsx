@@ -93,6 +93,7 @@ function Nav({ toggleDarkMode, isDark }) {
           <button
             className="absolute z-50 top-4 right-4"
             onClick={handleDrawerToggle}
+             aria-label="Close"
           >
             <CloseIcon sx={{ fontSize: 32, color: "white" }}
             

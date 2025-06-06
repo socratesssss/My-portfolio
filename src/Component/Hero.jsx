@@ -180,7 +180,7 @@ function Hero({ toggleDarkMode, isDark }) {
           >
             <img
               src="/sijan2.jpg"
-              className="rounded-full  mx-auto   sm:w-full w-[70%] dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full"
+              className="rounded-full  mx-auto   sm:w-full w-[70%] h-auto dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full"
               alt="Mohammad Sijan - Frontend Developer from Bangladesh"
             />
           </motion.div>
