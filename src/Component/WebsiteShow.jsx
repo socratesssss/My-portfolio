@@ -65,7 +65,7 @@ const WebsiteShow = () => {
   }, []);
 
   return (
-    <section className="bg-gray-100 dark:bg-[#0B192C] py-16  ">
+    <section className="bg-gray-100 dark:bg-gray-900 py-16  ">
       <div className="container px-4 mx-auto">
         <h2 className="pb-12 text-3xl font-bold text-center text-[#00cfef] md:text-4xl ">
           Featured Projects

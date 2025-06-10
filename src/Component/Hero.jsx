@@ -59,7 +59,7 @@ function Hero({ toggleDarkMode, isDark }) {
       <Nav isDark={isDark} toggleDarkMode={toggleDarkMode} />
       {/* <Ai isDark={isDark} toggleDarkMode={toggleDarkMode} /> */}
 
-  <div className="dark:bg-[url('/bg4.jpg')] bg-fixed   bg-cover bg-center bg-no-repeat">
+  <div className="md:dark:bg-[url('/bg4.jpg')] bg-fixed   bg-cover bg-center bg-no-repeat">
         <div className="container mx-auto">
         <div className="flex flex-col pt-20 md:justify-between md:flex-row md:pt-20">
           {/* Left Section */}
@@ -111,7 +111,7 @@ function Hero({ toggleDarkMode, isDark }) {
                 initial={{ opacity: 0, y: 20 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex flex-col md:flex-row gap-4 md:w-[120%] justify-between mt-8 md:mt-16"
+                className="flex flex-col md:flex-row gap-4 md:w-[115%] justify-between mt-8 md:mt-16"
               >
                 <a href={`tel:${Mobile}`} className="font-semibold text-black dark:text-white"   aria-label="My Number">
                   <LocalPhoneIcon className="p-1 bg-[#00cfef] rounded-full" sx={{ color: "white" }} />
