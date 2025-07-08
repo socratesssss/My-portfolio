@@ -95,6 +95,7 @@ function Hero({ toggleDarkMode, isDark }) {
 
                 <motion.button
                   // onClick={openPDF}
+                  onClick={()=> alert('No Resume found!')}
                   className="md:px-6 transition-all duration-300 md:py-2 md:mt-10 mt-8 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2"
                   id="mygig"
                 >

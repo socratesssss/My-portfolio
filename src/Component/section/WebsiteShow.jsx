@@ -4,7 +4,7 @@ import ActionAreaCard from "../Card";
 
 const websites = [
   { id :7,
-    name:"E-cemmerce site",
+    name:"E-commerce site",
     img:'/ecom.png',
     link:'https://e-commers-site-qwe.netlify.app/',
     des:""
@@ -20,19 +20,19 @@ const websites = [
 
   {
     id: 2,
-    name: "governinDocs",
+    name: "GoverninDocs",
     img: "/website2.jpg",
     link: "https://ai-govs-docs.netlify.app/",
   },
   {
     id: 3,
-    name: "thicker ai",
+    name: "Thicker ai",
     img: "/website3.jpg",
     link: "https://tailwind-project-123.netlify.app/",
   },
   {
     id: 4,
-    name: "wizia",
+    name: "Wizia",
     img: "/wesite4.jpg",
     link: "https://wizia222.netlify.app/",
   },
@@ -72,7 +72,7 @@ const WebsiteShow = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-100 dark:bg-gray-900 ">
+    <section className="py-16 bg-white dark:bg-gray-900 ">
       <div className="container px-4 mx-auto">
         <h2 className="pb-12 text-3xl font-bold text-center text-[#00cfef] md:text-4xl ">
           Featured Projects

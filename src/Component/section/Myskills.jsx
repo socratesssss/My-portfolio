@@ -21,7 +21,7 @@ const barVariants = {
 
 const Myskills = () => {
   return ( 
-    <section id="skills" className="py-16 bg-white dark:bg-[#0B192C]   bg-fixed  md:dark:bg-[url('/bg3.jpg')] bg-cover bg-center bg-no-repeat"> 
+    <section id="skills" className="py-16 bg-gray-100 dark:bg-[#0B192C]   bg-fixed  md:dark:bg-[url('/bg3.jpg')] bg-cover bg-center bg-no-repeat"> 
       <div className="px-6 mx-auto sm:px-12">
         <h2 className="mb-10 text-3xl font-bold text-center text-[#00cfec]">
           My Skills
