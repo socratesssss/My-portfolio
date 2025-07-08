@@ -14,10 +14,8 @@ import FaqSection from "./Faq";
 import Footer from "./Footer";
 import ReviewSection from "./Review";
 import SendEmail from "./Email";
-import Ai from "../Ai";
 import AboutSection from "./About";
-import EmailIcon from "@mui/icons-material/Email";
-import GigsSection from "../gig/Gig";
+
 
 function Hero({ toggleDarkMode, isDark }) {
   const Mobile = "8801839528641";
