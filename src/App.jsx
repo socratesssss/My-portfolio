@@ -3,7 +3,6 @@ import React from "react";
 import Layout from "./Layout";
 import Hero from "./Component/section/Hero";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ServiceDetails from "./Component/gig/ServiceDetails";
 import WebsiteInquiryForm from "./Component/order/Order";
 
 function App() {
