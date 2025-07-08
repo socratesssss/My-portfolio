@@ -1,23 +1,23 @@
-
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import ActionAreaCard from "./Card";
+import ActionAreaCard from "../Card";
 
 const websites = [
+  { id :7,
+    name:"E-cemmerce site",
+    img:'/ecom.png',
+    link:'https://e-commers-site-qwe.netlify.app/',
+    des:""
+    
+  },
   {
     id: 1,
     name: "My AI Model",
     img: "/alpha.png",
     link: "https://alpha-ai-robo.netlify.app/",
-    des:'AlphaMind is an AI-powered chatbot designed to assist users with a variety of tasks. Built using the React framework, it offers a user-friendly interface that facilitates seamless interactions. While the website doesnt provide extensive details about its underlying technology, the chatbot appears to be capable of handling general inquiries and providing information on a range of topics.'
+    des: "AlphaMind is an AI-powered chatbot designed to assist users with a variety of tasks. Built using the React framework, it offers a user-friendly interface that facilitates seamless interactions. While the website doesnt provide extensive details about its underlying technology, the chatbot appears to be capable of handling general inquiries and providing information on a range of topics.",
   },
-  {
-    id: 6,
-    name: "DISASTERS",
-    img: "/website1.jpg",
-    link: "https://disaster-website.netlify.app/",
-    des:"The website appears to be a basic template for a disaster information platform, built using Vite and React. It seems to serve as a foundational structure for developers or organizations aiming to create a disaster response or emergency information site."
-  },
+
   {
     id: 2,
     name: "governinDocs",
@@ -42,6 +42,13 @@ const websites = [
     img: "/website5.jpg",
     link: "https://react-app-1345432.netlify.app/",
   },
+    {
+    id: 6,
+    name: "DISASTERS",
+    img: "/website1.jpg",
+    link: "https://disaster-website.netlify.app/",
+    des: "The website appears to be a basic template for a disaster information platform, built using Vite and React. It seems to serve as a foundational structure for developers or organizations aiming to create a disaster response or emergency information site.",
+  }
 ];
 
 const WebsiteShow = () => {
@@ -65,7 +72,7 @@ const WebsiteShow = () => {
   }, []);
 
   return (
-    <section className="bg-gray-100 dark:bg-gray-900 py-16  ">
+    <section className="py-16 bg-gray-100 dark:bg-gray-900 ">
       <div className="container px-4 mx-auto">
         <h2 className="pb-12 text-3xl font-bold text-center text-[#00cfef] md:text-4xl ">
           Featured Projects
@@ -97,26 +104,25 @@ const WebsiteShow = () => {
             ref={scrollRef}
             className="flex gap-6 px-4 pb-4 overflow-x-auto overflow-y-hidden scrollbar-hidden snap-x snap-mandatory scroll-smooth scrollbar-hide"
           >
-         {websites.map((site, index) => (
-  <motion.div
-    key={site.id}
-    className="snap-center w-[90vw] flex-shrink-0"
-    {...(index === 0 && {
-      initial: { opacity: 0, y: 20 },
-      whileInView: { opacity: 1, y: 0 },
-      viewport: { once: true },
-      transition: { duration: 0.5, delay: 0 },
-    })}
-  >
-    <ActionAreaCard
-      name={site.name}
-      image={site.img}
-      link={site.link}
-      des={site.des}
-    />
-  </motion.div>
-))}
-
+            {websites.map((site, index) => (
+              <motion.div
+                key={site.id}
+                className="snap-center w-[90vw] flex-shrink-0"
+                {...(index === 0 && {
+                  initial: { opacity: 0, y: 20 },
+                  whileInView: { opacity: 1, y: 0 },
+                  viewport: { once: true },
+                  transition: { duration: 0.5, delay: 0 },
+                })}
+              >
+                <ActionAreaCard
+                  name={site.name}
+                  image={site.img}
+                  link={site.link}
+                  des={site.des}
+                />
+              </motion.div>
+            ))}
           </div>
 
           {/* Dot Pagination */}

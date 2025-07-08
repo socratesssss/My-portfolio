@@ -2,12 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "HTML", level: 95 },
   { name: "JavaScript", level: 70 },
   { name: "React", level: 80 },
+   { name: "Next.js", level: 60 },
   { name: "Tailwind CSS", level: 90 },
-  { name: "Next.js", level: 40 },
-  {name:'Node js', level: 50}
+  {name:'Node js', level: 60},
+  {name:'Mongo DB',level:65},
+    { name: "Express js", level: 75 },
 ];
 
 const barVariants = {
