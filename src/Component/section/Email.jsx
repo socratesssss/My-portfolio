@@ -21,10 +21,11 @@ const SendEmail = () => {
   return (
     <section
       ref={containerRef}
-      className=" py-6  md:py-16  md:dark:bg-[url('/bg2.jpg')] bg-fixed dark:bg-[#0B192C]  bg-cover bg-bottom  bg-no-repeat"
+      className=" py-6  md:py-16   md:dark:bg-[url('/bg2.jpg')] bg-fixed dark:bg-[#0B192C]  bg-cover bg-bottom  bg-no-repeat"
       id="contact"
     >
-          <h2 className="text-5xl hidden sm:block  font-bold py-8 text-[#00cfec] text-center  " ><span className="border-b-2 border-white ">Get in touch</span></h2>
+  <div className="container mx-auto">
+            <h2 className="text-5xl hidden sm:block  font-bold py-8 text-[#00cfec] text-center  " ><span className="border-b-2 border-white ">Get in touch</span></h2>
 
   <div className="gap-10 mx-4 md:mx-10 md:flex md:items-start">
         {/* Left Contact Info */}
@@ -184,6 +185,7 @@ const SendEmail = () => {
           })}
         </form>
       </motion.div>
+  </div>
   </div>
     </section>
   );

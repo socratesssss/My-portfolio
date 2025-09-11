@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "./Layout";
 import Hero from "./Component/section/Hero";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import WebsiteInquiryForm from "./Component/order/Order";
+
 
 function App() {
   const [isDark, setIsDark] = useState(() => {
@@ -41,10 +41,7 @@ function App() {
             element={<Hero isDark={isDark} toggleDarkMode={toggleDarkMode} />}
           />
      
-          <Route
-           element={<WebsiteInquiryForm/>}
-               path="/order"
-          />
+      
      
         </Route>
       </Routes>

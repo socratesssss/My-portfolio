@@ -56,9 +56,10 @@ function FaqSection() {
   return (
     <section
       ref={sectionRef}
-      className="container px-4 py-10 mx-auto bg-white dark:bg-gray-900 md:px-20"
+      className=" px-4 py-10  bg-white md:px-20  md:dark:bg-[url('/bg1.jpg')] dark:bg-[#0B192C]  bg-fixed bg-cover bg-center bg-no-repeat"
     >
-      <h2 className="mb-6 text-3xl font-bold text-center text-[#00cfef]">
+ <div className="container mx-auto ">
+       <h2 className="mb-6 text-3xl font-bold text-center text-[#00cfef]">
         Frequently Asked Questions
       </h2>
 
@@ -105,6 +106,7 @@ function FaqSection() {
           </motion.div>
         ))}
       </motion.div>
+ </div>
     </section>
   );
 }

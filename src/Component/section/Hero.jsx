@@ -26,7 +26,7 @@ function Hero({ toggleDarkMode, isDark }) {
   )}`;
 
   const openPDF = () => {
-    window.open("/Resume.pdf", "_blank");
+    window.open("/certification.pdf", "_blank");
   };
 
   const fullText = " Mohammad Sijan";
@@ -95,11 +95,11 @@ function Hero({ toggleDarkMode, isDark }) {
 
                 <motion.button
                   // onClick={openPDF}
-                  onClick={()=> alert('No Resume found!')}
+                  onClick={openPDF}
                   className="md:px-6 transition-all duration-300 md:py-2 md:mt-10 mt-8 text-white bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg px-5 py-2.5 text-center mb-2"
                   id="mygig"
                 >
-                  See Resume
+                  See Certification
                   <NorthEastIcon
                     sx={{ fontSize: 18, marginLeft: "8px" }}
                     className="text-white bg-gradient-to-r rounded-sm from-[#FFB147] via-[#FF6C63] to-[#B86ADF]"
@@ -202,8 +202,8 @@ function Hero({ toggleDarkMode, isDark }) {
               className="md:-mt-10 pb-14 sm:pb-0"
             >
               <img
-                src="/sijan2.jpg"
-                className="rounded-full  mx-auto   sm:w-full w-[70%] h-auto dark:border-white border-b-6 sm:border-l-6 grayscale sm:rounded-none sm:rounded-l-full"
+                src="/sijan3.jpg"
+                className="rounded-full  mx-auto   sm:w-full w-[70%] h-auto dark:border-white border-b-6 sm:border-l-6 sm:rounded-none sm:rounded-l-full"
                 alt="Mohammad Sijan - Frontend Developer from Bangladesh"
               />
             </motion.div>

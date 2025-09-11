@@ -11,7 +11,7 @@ const reviews = [
   },
   {
     name: "Cristiano Ronaldo",
-    role: "Captain of Al-Nassr",
+    role: "***",
     review:
       "Sijan is an outstanding developer. He delivered everything ahead of schedule and with great attention to detail.",
     image: "/ronaldo.jpg",
@@ -42,7 +42,7 @@ function ReviewSection() {
   };
 
   return (
-    <section className="bg-gray-100 py-16  md:dark:bg-[url('/bg1.jpg')] dark:bg-[#0B192C]  bg-fixed bg-cover bg-center bg-no-repeat">
+    <section className="bg-gray-100 py-16   dark:bg-[#0B192C]  ">
       <div className="container px-4 mx-auto">
         <h2 className="mb-12 text-3xl font-bold text-center  md:text-4xl text-[#00cfef]">
           What Clients Say

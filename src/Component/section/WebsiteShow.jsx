@@ -6,7 +6,14 @@ const websites = [
   { id :7,
     name:"E-commerce site",
     img:'/ecom.png',
-    link:'https://e-commers-site-qwe.netlify.app/',
+    link:'https://e-commerce-project-i.netlify.app/',
+    des:""
+    
+  },
+  { id :8,
+    name:"Admin panel for E-com",
+    img:'/008.png',
+    link:'https://e-com-dashboardd.netlify.app/',
     des:""
     
   },
@@ -72,7 +79,7 @@ const WebsiteShow = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900 ">
+    <section className="py-16 bg-white dark:bg-gray-900 md:dark:bg-[url('/bg3.jpg')] bg-fixed bg-cover bg-center bg-no-repeat ">
       <div className="container px-4 mx-auto">
         <h2 className="pb-12 text-3xl font-bold text-center text-[#00cfef] md:text-4xl ">
           Featured Projects
