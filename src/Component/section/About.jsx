@@ -59,9 +59,9 @@ const AboutSection = React.memo(() => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <StatCard title="1+" subtitle="Years Experience" />
-          <StatCard title="10+" subtitle="Projects Completed" />
-          <StatCard title="9+" subtitle="Happy Clients" />
+          <StatCard title="-1" subtitle="Years Experience" />
+          <StatCard title="20+" subtitle="Projects Completed" />
+          <StatCard title="-99" subtitle="Happy Clients" />
           <StatCard
             icon={<LocationOnIcon sx={{ fontSize: 40 }} />}
             subtitle="Bangladesh"
